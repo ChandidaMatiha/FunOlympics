@@ -33,7 +33,7 @@
             width: 430px;
             position: relative;
         }
-        .containers .wrappers{
+        .containers .wrappers21{
             position: relative;
             height: 300px;
             width: 100%;
@@ -45,10 +45,10 @@
             justify-content: center;
             overflow: hidden;
         }
-        .wrappers.active{
+        .wrappers21.active{
             border: none;
         }
-        .wrappers .images{
+        .wrappers21 .images{
             position: absolute;
             height: 100%;
             width: 100%;
@@ -56,21 +56,21 @@
             align-items: center;
             justify-content: center;
         }
-        .wrappers img{
+        .wrappers21 img{
             height: 100%;
             width: 100%;
             object-fit: cover;
         }
-        .wrappers .icon{
+        .wrappers21 .icon{
             font-size: 100px;
             color: #aaafac;
         }
-        .wrappers .text{
+        .wrappers21 .text{
             font-size: 20px;
             font-weight: 500;
             color: #5B5B7B;
         }
-        .wrappers #cancel-btn i{
+        .wrappers21 #cancel-btn21 i{
             position: absolute;
             font-size: 20px;
             right: 15px;
@@ -79,13 +79,13 @@
             cursor: pointer;
             display: none;
         }
-        .wrappers.active:hover #cancel-btn i{
+        .wrappers21.active:hover #cancel-btn21 i{
             display: block;
         }
-        .wrappers #cancel-btn i:hover{
+        .wrappers21 #cancel-btn21 i:hover{
             color: #e74c3c;
         }
-        .wrappers .file-name{
+        .wrappers21 .file-name{
             position: absolute;
             bottom: 0px;
             width: 100%;
@@ -95,7 +95,7 @@
             display: none;
             background: linear-gradient(135deg,#aaafac 0%,#aaafac 100%);
         }
-        .wrappers.active:hover .file-name{
+        .wrappers21.active:hover .file-name{
             display: block;
         }
         .containers #custom-btn{
@@ -114,7 +114,74 @@
             cursor: pointer;
             background: linear-gradient(135deg,#aaafac 0%,#aaafac 100%);
         }
-        ***********************************n
+        ***********************************
+
+        .containers .wrappers22{
+            position: relative;
+            height: 300px;
+            width: 100%;
+            border-radius: 10px;
+            background: #fff;
+            border: 2px dashed #c2cdda;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .wrappers22.active{
+            border: none;
+        }
+        .wrappers22 .images{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wrappers22 img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        .wrappers22 .icon{
+            font-size: 100px;
+            color: #aaafac;
+        }
+        .wrappers22 .text{
+            font-size: 20px;
+            font-weight: 500;
+            color: #5B5B7B;
+        }
+        .wrappers22 #cancel-btn22 i{
+            position: absolute;
+            font-size: 20px;
+            right: 15px;
+            top: 15px;
+            color: #aaafac;
+            cursor: pointer;
+            display: none;
+        }
+        .wrappers22.active:hover #cancel-btn22 i{
+            display: block;
+        }
+        .wrappers22 #cancel-btn22 i:hover{
+            color: #e74c3c;
+        }
+        .wrappers22 .file-name{
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            padding: 8px 0;
+            font-size: 18px;
+            color: #fff;
+            display: none;
+            background: linear-gradient(135deg,#aaafac 0%,#aaafac 100%);
+        }
+        .wrappers22.active:hover .file-name{
+            display: block;
+        }
+
     </style>
 </head>
 
@@ -279,13 +346,46 @@
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button class="btn btn-secondary" name="21" onclick="defaultBtnActive(this.name)" type="button">Choose an image</button>
+                                                    <button class="btn btn-secondary" name="21" onclick="defaultBtnActive()" type="button">Choose an image</button>
                                                     <input id="default-btn21" type="file" hidden>
                                                     <button type="button" class="btn btn-primary">Upload</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <script>
+                                        const wrapper = document.querySelector(".wrappers21");
+                                        const fileName = document.querySelector(".file-name21");
+                                        const defaultBtn = document.querySelector("#default-btn21");
+                                        const customBtn = document.querySelector("#custom-btn21");
+                                        const cancelBtn = document.querySelector("#cancel-btn21 i");
+                                        const img = document.getElementById("image21");
+                                       /// let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+                                        function defaultBtnActive(){
+                                            alert("test");
+                                            defaultBtn.click();
+                                        }
+                                        defaultBtn.addEventListener("change", function(){
+                                            const file = this.files[0];
+                                            if(file){
+                                                const reader = new FileReader();
+                                                reader.onload = function(){
+                                                    const result = reader.result;
+                                                    img.src = result;
+                                                    wrapper.classList.add("active");
+                                                }
+                                                cancelBtn.addEventListener("click", function(){
+                                                    img.src = "";
+                                                    wrapper.classList.remove("active");
+                                                })
+                                                reader.readAsDataURL(file);
+                                            }
+                                            if(this.value){
+                                                let valueStore = this.value.match(regExp);
+                                                fileName.textContent = valueStore;
+                                            }
+                                        });
+                                    </script>
 
 
                                 </div>
@@ -366,13 +466,51 @@
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button class="btn btn-secondary" name="22" onclick="defaultBtnActive(this.name)" type="button">Choose an image</button>
+                                                    <button class="btn btn-secondary" onclick="defaultBtnActive2()">Choose an image 22</button>
                                                     <input id="default-btn22" type="file" hidden>
                                                     <button type="button" class="btn btn-primary">Upload</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <script>
+                                        const wrapper22 = document.querySelector(".wrappers22");
+                                        const fileName22 = document.querySelector(".file-name22");
+                                        const defaultBtn22 = document.querySelector("#default-btn22");
+                                        const customBtn22 = document.querySelector("#custom-btn22");
+                                        const cancelBtn22 = document.querySelector("#cancel-btn22 i");
+                                        const img22 = document.getElementById("image22");
+                                        let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+
+                                        function defaultBtnActive2(){
+                                            alert("2");
+                                            defaultBtn22.click();
+                                        }
+
+                                        function dgf(){
+                                            alert("2");
+                                        }
+                                        defaultBtn22.addEventListener("change", function(){
+                                            const file = this.files[0];
+                                            if(file){
+                                                const reader = new FileReader();
+                                                reader.onload = function(){
+                                                    const result = reader.result;
+                                                    img22.src = result;
+                                                    wrapper22.classList.add("active");
+                                                }
+                                                cancelBtn22.addEventListener("click", function(){
+                                                    img22.src = "";
+                                                    wrapper22.classList.remove("active");
+                                                })
+                                                reader.readAsDataURL(file);
+                                            }
+                                            if(this.value){
+                                                let valueStore = this.value.match(regExp);
+                                                fileName22.textContent = valueStore;
+                                            }
+                                        });
+                                    </script>
 
 
                                 </div>
@@ -930,49 +1068,7 @@
 <script>
     flatpickr("input[type=datetime-local]", {});
 </script>
-<script>
 
-    const fileName = document.querySelector(".file-name");
-    const customBtn = document.querySelector("#custom-btn");
-
-   // const img = document.querySelector("img");
-    //const img = document.querySelector("#image"+id);
-    let img=null;
-    let defaultBtn = document.querySelector("#default-btn21");
-    let cancelBtn =null;
-    let wrapper=null;
-
-    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
-    function defaultBtnActive(id){
-        img = document.querySelector("#image"+id);
-
-        defaultBtn = document.querySelector("#default-btn"+id);
-        cancelBtn = document.querySelector("#cancel-btn"+id+ " i");
-        wrapper = document.querySelector(".wrappers"+id);
-        defaultBtn.click();
-    }
-    defaultBtn.addEventListener("change", function(){
-        const file = this.files[0];
-        if(file){
-            const reader = new FileReader();
-            reader.onload = function(){
-                const result = reader.result;
-                alert(result);
-                img.src = result;
-                wrapper.classList.add("active");
-            }
-            cancelBtn.addEventListener("click", function(){
-                img.src = "";
-                wrapper.classList.remove("active");
-            })
-            reader.readAsDataURL(file);
-        }
-        if(this.value){
-            let valueStore = this.value.match(regExp);
-            fileName.textContent = valueStore;
-        }
-    });
-</script>
 
 
 </body>
