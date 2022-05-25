@@ -1,19 +1,33 @@
 package com.example.olympics.controller;
 
 import com.example.olympics.model.Connection_Util;
+import com.example.olympics.model.bean.News;
 import com.example.olympics.model.bean.User_account;
+import com.example.olympics.model.bean.event;
+import com.example.olympics.model.bean.results;
+
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import javax.sql.DataSource;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.sql.Timestamp;
+import java.util.List;
 
 @WebServlet(name = "ServletOlympics", value = "/ServletOlympics")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 14, // 10 MB
+
+        maxFileSize = 1024 * 1024 * 1000000, // 1 GB
+        maxRequestSize = 1024 * 1024 * 1000000)   	// 1 GB
+
 public class ServletOlympics extends HttpServlet {
 
 
@@ -96,6 +110,7 @@ public class ServletOlympics extends HttpServlet {
 
         try {
             String theCommand = request.getParameter("command");
+            System.out.println("command "+theCommand);
 
             if (theCommand == null) {
 
@@ -108,6 +123,15 @@ public class ServletOlympics extends HttpServlet {
                 case "Login_User":
                     loginUser(request,response);
                     break;
+                case "Event":
+                    Event(request,response);
+                    break;
+                case "News":
+                    News(request,response);
+                    break;
+                case "Results":
+                    Results(request,response);
+                    break;
             }
             // listStudents(request, response);
         }
@@ -115,6 +139,128 @@ public class ServletOlympics extends HttpServlet {
             exc.printStackTrace();
 
         }
+    }
+
+    private void Results(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        HttpSession session= request.getSession();
+        String sportTitle=request.getParameter("sportTitle");
+        String winnersName=request.getParameter("winnersName");
+        String country=request.getParameter("country");
+        String medal=request.getParameter("medal");
+        String action=request.getParameter("action");
+        String id="0";
+        if(action.equals("updating") || action.equals("deleting")){
+            id=request.getParameter("id");
+        }
+        results rs=new results(id,sportTitle,winnersName,country,medal);
+        List<results> results=connectionUtil.getResults(rs,action);
+
+        if(!results.isEmpty()){
+            if(session.getAttribute("AlertError")!= null){
+                session.removeAttribute("AlertError");
+            }
+            session.setAttribute("AlertSuccessful","Successfully");
+            session.setAttribute("resultsInfo",results);
+            request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+
+        }else{
+            System.out.println("error ");
+            session.setAttribute("AlertError","Error");
+            request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+        }
+
+    }
+
+    private void News(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        HttpSession session= request.getSession();
+        String newsTitle=request.getParameter("newsTitle");
+        System.out.println("lets see"+newsTitle);
+        String date=request.getParameter("date");
+        String context=request.getParameter("context");
+        String action=request.getParameter("action");
+        String id="0";
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String ApplicationDate= String.valueOf(timestamp.getTime());
+        if(action.equals("updating") || action.equals("deleting")){
+            id=request.getParameter("id");
+        }
+
+        String fileName = null;
+        String folderName6 = "NewsImage";
+        String uploadPath6 = request.getServletContext().getRealPath("") + folderName6;
+        File dir6 = new File(uploadPath6);
+        if (!dir6.exists()) {
+            dir6.mkdirs();
+        }
+
+        Part image=request.getPart("image");
+        InputStream image1 = image.getInputStream();
+        fileName=newsTitle+"_NewsImage"+ApplicationDate+".jpg";
+        Files.copy(image1, Paths.get(uploadPath6 + File.separator + fileName), StandardCopyOption.REPLACE_EXISTING);
+
+
+        News ns=new News(id,newsTitle,date,context,fileName);
+        List<News> news=connectionUtil.getNews(ns,action);
+        if(!news.isEmpty()){
+            if(session.getAttribute("AlertError")!= null){
+                session.removeAttribute("AlertError");
+            }
+            session.setAttribute("AlertSuccessful","Successfully");
+            session.setAttribute("newsInfo",news);
+            request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+
+        }else{
+            session.setAttribute("AlertError","Error");
+            request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+        }
+
+    }
+
+    private void Event(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        HttpSession session= request.getSession();
+        String eventTitle=request.getParameter("eventTitle");
+        String date=request.getParameter("date");
+        String location=request.getParameter("location");
+        String context=request.getParameter("context");
+        String action=request.getParameter("action");
+        String id="0";
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String ApplicationDate= String.valueOf(timestamp.getTime());
+        if(action.equals("updating") || action.equals("deleting")){
+            id=request.getParameter("id");
+        }
+
+        String fileName = null;
+        String folderName6 = "EventImage";
+        String uploadPath6 = request.getServletContext().getRealPath("") + folderName6;
+        File dir6 = new File(uploadPath6);
+        if (!dir6.exists()) {
+            dir6.mkdirs();
+        }
+
+        Part image=request.getPart("image");
+        InputStream image1 = image.getInputStream();
+        fileName=eventTitle+"_EventImage"+ApplicationDate+".jpg";
+        Files.copy(image1, Paths.get(uploadPath6 + File.separator + fileName), StandardCopyOption.REPLACE_EXISTING);
+
+
+        event ev=new event(id,eventTitle,date,location,context,fileName);
+        List<event> events=connectionUtil.getEvent(ev,action);
+        if(!events.isEmpty()){
+            if(session.getAttribute("AlertError")!= null){
+                session.removeAttribute("AlertError");
+            }
+            session.setAttribute("AlertSuccessful","Successfully");
+            session.setAttribute("eventInfo",events);
+            request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+
+        }else{
+            System.out.println("error");
+            session.setAttribute("AlertError","Error");
+            request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+        }
+
     }
 }
 

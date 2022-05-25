@@ -1,14 +1,14 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="Olympics:war">
+  <artifact type="war" name="FunOlympics:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <properties id="maven-jee-properties">
       <options>
-        <module>Olympics</module>
+        <module>FunOlympics</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="archive" name="Olympics-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="Olympics:war exploded" />
+      <element id="artifact" artifact-name="FunOlympics:war exploded" />
     </root>
   </artifact>
 </component>

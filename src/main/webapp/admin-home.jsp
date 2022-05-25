@@ -1,3 +1,6 @@
+
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -280,15 +283,17 @@
                                                     <h5 class="modal-title" id="exampleModalLabel">News</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <form method="post" action="ServletOlympics" name="contactForm" id='contact_form' class="form-border">
-                                                        <input type="hidden" name="command" value="">
+
+                                                    <form method="post" action="ServletOlympics" name="contactForm"  enctype="multipart/form-data"  id='news' class="form-border">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="command" value="News">
+                                                        <input type="hidden" name="action" value="uploading">
                                                         <div class="row">
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>News Title:</label>
-                                                                    <input type='text' name='NewsTitle' id='name' class="form-control" value="${user_acc.full_name}">
+                                                                    <input type='text' name='newsTitle' id='name' class="form-control" value="${user_acc.full_name}">
                                                                 </div>
                                                             </div>
 
@@ -343,16 +348,19 @@
                                                             </div>
 
                                                         </div>
-                                                    </form>
+
                                                 </div>
+
                                                 <div class="modal-footer">
                                                     <button class="btn btn-secondary" name="21" onclick="defaultBtnActive()" type="button">Choose an image</button>
-                                                    <input id="default-btn21" type="file" hidden>
-                                                    <button type="button" class="btn btn-primary">Upload</button>
+                                                    <input id="default-btn21" name="image" type="file" hidden>
+                                                    <button type="button" onclick="document.getElementById('news').submit()" class="btn btn-primary">Upload</button>
                                                 </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
+
                                     <script>
                                         const wrapper = document.querySelector(".wrappers21");
                                         const fileName = document.querySelector(".file-name21");
@@ -362,7 +370,6 @@
                                         const img = document.getElementById("image21");
                                        /// let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
                                         function defaultBtnActive(){
-                                            alert("test");
                                             defaultBtn.click();
                                         }
                                         defaultBtn.addEventListener("change", function(){
@@ -405,15 +412,17 @@
                                                     <h5 class="modal-title" id="staticBackdropLabel">Event</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <form method="post" action="ServletOlympics" name="contactForm" id='contact_form1' class="form-border">
-                                                        <input type="hidden" name="command" value="Registering_User">
+
+                                                    <form method="post" action="ServletOlympics" enctype="multipart/form-data"  name="contactForm" id='event' class="form-border">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="command" value="Event">
+                                                        <input type="hidden" name="action" value="uploading">
                                                         <div class="row">
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Event Title:</label>
-                                                                    <input type='text' name='EventTitle' id='event-t' class="form-control" value="${user_acc.full_name}">
+                                                                    <input type='text' name='eventTitle' id='event-t' class="form-control" value="${user_acc.full_name}">
                                                                 </div>
                                                             </div>
 
@@ -427,7 +436,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Location:</label>
-                                                                    <input type='text' name='location' id='Location' class="form-control">
+                                                                    <input type='text' name='location' id='location' class="form-control">
                                                                 </div>
                                                             </div>
 
@@ -463,13 +472,14 @@
 
 
                                                         </div>
-                                                    </form>
+
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button class="btn btn-secondary" onclick="defaultBtnActive2()">Choose an image 22</button>
-                                                    <input id="default-btn22" type="file" hidden>
-                                                    <button type="button" class="btn btn-primary">Upload</button>
+                                                    <input id="default-btn22" name="image" type="file" hidden>
+                                                    <button type="button" onclick="document.getElementById('event').submit()" class="btn btn-primary">Upload</button>
                                                 </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -483,7 +493,6 @@
                                         let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
 
                                         function defaultBtnActive2(){
-                                            alert("2");
                                             defaultBtn22.click();
                                         }
 
@@ -531,21 +540,22 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form method="post" action="ServletOlympics" name="contactForm" id='contact_form2' class="form-border">
-                                                        <input type="hidden" name="command" value="Registering_User">
+                                                    <form method="post" action="ServletOlympics" name="contactForm" enctype="multipart/form-data"  id='contact_form2' class="form-border">
+                                                        <input type="hidden" name="command" value="Results">
+                                                        <input type="hidden" name="action" value="uploading">
                                                         <div class="row">
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Sports Title:</label>
-                                                                    <input type='text' name='SportTitle' id='sports-t' class="form-control" value="${user_acc.full_name}">
+                                                                    <input type='text' name='sportTitle' id='sports-t' class="form-control" value="${user_acc.full_name}">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>winner's name:</label>
-                                                                    <input type='text' name='winner' id='winner-n' class="form-control" value="${user_acc.email}">
+                                                                    <input type='text' name='winnersName' id='winner-n' class="form-control" value="${user_acc.email}">
                                                                 </div>
                                                             </div>
 
@@ -568,7 +578,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                    <button type="button" class="btn btn-primary">Upload</button>
+                                                    <button type="button" onclick="document.getElementById('contact_form2').submit()" class="btn btn-primary">Upload</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -708,14 +718,18 @@
                                             </thead>
 
                                             <tbody>
+                                            <c:forEach var="news" items="${newsInfo}">
+                                                <c:set var="countRepre" value="${countRepre+1}" scope="page"/>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Tiger Nixon</td>
+                                                <td>${countRepre}</td>
+                                                <td>${news.newsTitle}</td>
                                                 <td>Image</td>
-                                                <td>Context</td>
-                                                <td>2011/04/25</td>
+                                                <td>${news.context}</td>
+                                                <td>${news.date}</td>
                                                 <td>Edit icons</td>
                                             </tr>
+                                            </c:forEach>
+
                                             <tr>
                                                 <td>2</td>
                                                 <td>Garrett Winters</td>
@@ -794,19 +808,25 @@
                                                 <th>Image</th>
                                                 <th>Location</th>
                                                 <th>Date</th>
+                                                <th>context</th>
                                                 <th>Edit</th>
                                             </tr>
                                             </thead>
 
                                             <tbody>
+                                            <c:set var="countRepre2" value="0" scope="page"/>
+                                        <c:forEach var="event" items="${eventInfo}">
+                                            <c:set var="countRepre2" value="${countRepre2+1}" scope="page"/>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>Image</td>
-                                                <td>Beijing</td>
-                                                <td>2011/04/25</td>
+                                                <td>${countRepre2}</td>
+                                                <td>${event.eventTitle}</td>
+                                                <td>image</td>
+                                                <td>${event.location}</td>
+                                                <td>${event.date}</td>
+                                                <td>${event.context}</td>
                                                 <td>Edit icons</td>
                                             </tr>
+                                        </c:forEach>
                                             <tr>
                                                 <td>2</td>
                                                 <td>Garrett Winters</td>
@@ -890,14 +910,18 @@
                                             </thead>
 
                                             <tbody>
+                                            <c:set var="countRepre3" value="0" scope="page"/>
+                                            <c:forEach var="results" items="${resultsInfo}">
+                                                <c:set var="countRepre3" value="${countRepre3+1}" scope="page"/>
                                             <tr>
-                                                <td>1</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>Country name</td>
-                                                <td>Gold</td>
+                                                <td>${countRepre3}</td>
+                                                <td>${results.sportTitle}</td>
+                                                <td>${results.winnersName}</td>
+                                                <td>${results.country}</td>
+                                                <td>${results.medal}</td>
                                                 <td>Edit icons</td>
                                             </tr>
+                                            </c:forEach>
                                             <tr>
                                                 <td>2</td>
                                                 <td>sports</td>
