@@ -587,6 +587,87 @@
 
                                 </div>
 
+                                <div class="col-md-4 mb60">
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                                        Broadcast
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop1" tabindex="-1" aria-labelledby="staticBackdrop1Label" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdrop1Label">Event</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="post" action="ServletOlympics" name="contactForm" id='contact_form3' class="form-border">
+                                                        <input type="hidden" name="command" value="Registering_User">
+                                                        <div class="row">
+
+                                                            <div class="col-md-6">
+                                                                <div class="field-set">
+                                                                    <label>Broadcast Name:</label>
+                                                                    <input type='text' name='broadcast' id='broadcast' class="form-control" value="${user_acc.full_name}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="field-set" class="dropdown style-2" >
+                                                                    <label>Sport:</label>
+                                                                    <div id="item_category" class="dropdown style-2" >
+                                                                        <a href="#" class="btn-selector" style="color: #6b6b6b" ,>Athletics</a>
+                                                                        <ul class="d-col-3">
+                                                                            <li><span>Archery</span></li>
+                                                                            <li><span>Athletics</span></li>
+                                                                            <li><span>Artistic swimming</span></li>
+                                                                            <li><span>Badminton</span></li>
+                                                                            <li><span>Basketball</span></li>
+                                                                            <li><span>Baseball</span></li>
+                                                                            <li><span>Curling</span></li>
+                                                                            <li><span>Canoe</span></li>
+                                                                            <li><span>Diving</span></li>
+                                                                            <li><span>Equestrian</span></li>
+                                                                            <li><span>Football</span></li>
+                                                                            <li><span>Fencing</span></li>
+                                                                            <li><span>Futsal</span></li>
+                                                                            <li><span>Gymnastics</span></li>
+                                                                            <li><span>Golf</span></li>
+                                                                            <li><span>Handball</span></li>
+                                                                            <li><span>Hockey</span></li>
+                                                                            <li><span>Ice hockey</span></li>
+                                                                            <li><span>Judo</span></li>
+                                                                            <li><span>Karate</span></li>
+                                                                            <li><span>Luge</span></li>
+                                                                            <li><span>Mountain bike</span></li>
+                                                                            <li><span>Nordic combined</span></li>
+                                                                            <li><span>Road cycling</span></li>
+                                                                            <li><span>Rowing</span></li>
+                                                                            <li><span>Rugby</span></li>
+                                                                            <li><span>Shooting</span></li>
+                                                                            <li><span>Sailing</span></li>
+                                                                            <li><span>Surfing</span></li>
+                                                                            <li><span>tennis</span></li>
+                                                                            <li><span>Volleyball</span></li>
+                                                                            <li><span>Water polo</span></li>
+                                                                            <li><span>Wrestling</span></li>
+                                                                        </ul>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                    <button type="button" class="btn btn-primary">Upload</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
 
 
                             </div>
