@@ -576,10 +576,6 @@
                                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
                                     </a>
                                     <img src="images/misc/podcast-1.jpg" class="img-fluid" alt="">
-                                    <a href="https://www.youtube.com/embed/SP3yyrboTno" class="play-btn" data-rel="lightcase">
-                                        <i class="icofont-ui-play"></i>
-                                        <span class="pluse_2"></span>
-                                    </a>
                                 </div>
                             </div>
 
@@ -614,11 +610,6 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
                             <div class="about-image">
-                                <img src="assets/images/about/01.jpg" alt="about image">
-                                <a href="https://www.youtube.com/embed/SP3yyrboTno" class="play-btn" data-rel="lightcase">
-                                    <i class="icofont-ui-play"></i>
-                                    <span class="pluse_2"></span>
-                                </a>
                             </div>
                         </div>
                         <div class="col-lg-10">
