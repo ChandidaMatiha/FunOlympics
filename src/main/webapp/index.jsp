@@ -25,6 +25,8 @@
     <!-- color scheme -->
     <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" />
     <link href="css/coloring.css" rel="stylesheet" type="text/css" />
+    <link href="css/custom-video_player.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -605,6 +607,58 @@
                 </section>
             <!-- section streaming open-->
 
+            <!-- section streaming open-->
+            <section id="section-studio-type2" class="no-top">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h2>Streaming Now</h2>
+                                <div class="small-border bg-color-2"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Modal Video</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area modal-video">
+                                    <div class="modal-video-container text-center mb-5">
+                                        <img class="img-fluid" src="images/1920x582.jpg"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        <i id="link" class="social_youtube"></i>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header" id="staticBackdropLabel">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body p-0">
+                                                        <div class="video-container">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- section streaming open-->
+
+
+
             <section class="about-section padding-tb padding-b">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -743,6 +797,8 @@
     <script src="js/jquery.lazy.min.js"></script>
     <script src="js/jquery.lazy.plugins.min.js"></script>
     <script src="js/designesia.js"></script>
+    <script src="js/video-custom.js"></script>
+    <!--  END CUSTOM SCRIPTS FILE  -->
 
     
 </body>
