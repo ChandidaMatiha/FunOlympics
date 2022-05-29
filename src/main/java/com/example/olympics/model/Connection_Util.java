@@ -1,9 +1,6 @@
 package com.example.olympics.model;
 
-import com.example.olympics.model.bean.News;
-import com.example.olympics.model.bean.User_account;
-import com.example.olympics.model.bean.event;
-import com.example.olympics.model.bean.results;
+import com.example.olympics.model.bean.*;
 
 import javax.sql.DataSource;
 import java.nio.charset.StandardCharsets;
@@ -274,7 +271,7 @@ public class Connection_Util {
 
                 }else if(action.equals("updating")){
                     myConn = dataSource.getConnection();
-                    sql = "UPDATE events set `eventTitle`, `date`, `location`, `context`, `image` where (id='"+ev.getId()+"')";
+                    sql = "UPDATE events set `eventTitle`=?, `date`=?, `location`=?, `context`=?, `image`=? where (id='"+ev.getId()+"')";
                 }
                 myStmt = myConn.prepareStatement(sql);
                 myStmt.setString(1, ev.getEventTitle());
@@ -282,6 +279,79 @@ public class Connection_Util {
                 myStmt.setString(3, ev.getLocation());
                 myStmt.setString(4, ev.getContext());
                 myStmt.setString(5, ev.getImage());
+                myStmt.execute();
+                msg="Successful";
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+            msg="Error";
+        }finally {
+            close(myConn,myStmt,null);
+        }
+        return msg;
+    }
+
+    public List<Broadcast> getBroadcast(Broadcast bc, String action) throws Exception {
+        List<Broadcast> broadcastsList= new ArrayList<>();
+        String msg="nothing";
+        if(!action.equals("login")){
+            msg=setBroadcast(bc,action);
+        }
+        if(msg.equals("Successful")||action.equals("login")){
+            Connection myConn=null;
+            PreparedStatement myStmt=null;
+            ResultSet myRs=null;
+            try {
+                myConn = dataSource.getConnection();
+                String sql = "Select * from broadcasting b, url u where b.sport=u.sport";
+                myStmt = myConn.prepareStatement(sql);
+                myRs=myStmt.executeQuery();
+                while(myRs.next()){
+                    String id=myRs.getString("id");
+                    String broadcastname=myRs.getString("broadcastname");
+                    String sport=myRs.getString("sport");
+                    String url=myRs.getString("url");
+                    Broadcast evt=new Broadcast(id,broadcastname,sport,url);
+                    broadcastsList.add(evt);
+                }
+
+            }catch (Exception e){
+                System.out.println(e);
+                broadcastsList.clear();
+            }finally {
+                close(myConn,myStmt,myRs);
+            }
+        }
+        return broadcastsList;
+    }
+
+    private String setBroadcast(Broadcast bc, String action) throws Exception {
+        Connection myConn=null;
+        PreparedStatement myStmt=null;
+        ResultSet myRs=null;
+        String msg=null;
+        String sql=null;
+        System.out.println(action);
+        try {
+            myConn = dataSource.getConnection();
+            if(action.equals("deleting")){
+                myConn = dataSource.getConnection();
+                sql = "Delete form broadcasting where(id='"+bc.getId()+"');";
+                myStmt = myConn.prepareStatement(sql);
+                myStmt.execute();
+            }else{
+                if(action.equals("uploading")){
+                    sql = "INSERT INTO broadcasting (`broadcastname`, `sport`) VALUES (?,?);";
+                    myStmt = myConn.prepareStatement(sql);
+                }else if(action.equals("updating")){
+                    myConn = dataSource.getConnection();
+                    sql = "UPDATE broadcasting set `broadcastname`=?, `sport`=?, where (id='"+bc.getId()+"')";
+                }
+                myStmt = myConn.prepareStatement(sql);
+                myStmt.setString(1, bc.getBroadcastName());
+                myStmt.setString(2, bc.getSportName());
+
                 myStmt.execute();
                 msg="Successful";
             }

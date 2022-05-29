@@ -1428,9 +1428,11 @@
         var btn = obj.find('.btn-selector');
         var dd = obj.find('ul');
         var opt = dd.find('li');
+        var sp=document.getElementById("sport_id")
         
             obj.on("mouseenter", function() {
                 dd.show();
+
             }).on("mouseleave", function() {
                 dd.hide();
             })
@@ -1441,6 +1443,7 @@
                 opt.removeClass("active");
                 $(this).addClass("active");
                 btn.text(txt);
+                sp.value=txt;
             });
     }
 

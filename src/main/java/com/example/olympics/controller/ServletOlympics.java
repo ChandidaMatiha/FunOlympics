@@ -1,10 +1,7 @@
 package com.example.olympics.controller;
 
 import com.example.olympics.model.Connection_Util;
-import com.example.olympics.model.bean.News;
-import com.example.olympics.model.bean.User_account;
-import com.example.olympics.model.bean.event;
-import com.example.olympics.model.bean.results;
+import com.example.olympics.model.bean.*;
 
 
 import javax.annotation.Resource;
@@ -132,12 +129,40 @@ public class ServletOlympics extends HttpServlet {
                 case "Results":
                     Results(request,response);
                     break;
+                case "Broadcast":
+                    eventBroadcast(request,response);
+                    break;
             }
             // listStudents(request, response);
         }
         catch (Exception exc) {
             exc.printStackTrace();
 
+        }
+    }
+
+    private void eventBroadcast(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        HttpSession session= request.getSession();
+        String broadcast=request.getParameter("broadcast");
+        String sport=request.getParameter("sport");
+        String action=request.getParameter("action");
+        String id=request.getParameter("id");
+        System.out.println(broadcast+"_"+sport);
+        Broadcast bc=new Broadcast(id,broadcast,sport,null);
+        List<Broadcast> results=connectionUtil.getBroadcast(bc,action);
+
+        if(!results.isEmpty()){
+            if(session.getAttribute("AlertError")!= null){
+                session.removeAttribute("AlertError");
+            }
+            session.setAttribute("AlertSuccessful","Successfully");
+            session.setAttribute("broadcastInfo",results);
+            request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+
+        }else{
+            System.out.println("error ");
+            session.setAttribute("AlertError","Error");
+            request.getRequestDispatcher("admin-home.jsp").forward(request, response);
         }
     }
 

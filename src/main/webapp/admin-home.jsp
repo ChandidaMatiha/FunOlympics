@@ -602,9 +602,12 @@
                                                     <h5 class="modal-title" id="staticBackdrop1Label">Event</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
+
                                                     <form method="post" action="ServletOlympics" name="contactForm" id='contact_form3' class="form-border">
-                                                        <input type="hidden" name="command" value="Registering_User">
+                                                        <div class="modal-body">
+                                                        <input type="hidden" name="command" value="Broadcast">
+                                                        <input type="hidden" name="action" value="uploading">
+                                                        <input type="hidden" name="id" value="0">
                                                         <div class="row">
 
                                                             <div class="col-md-6">
@@ -617,7 +620,8 @@
                                                                 <div class="field-set" class="dropdown style-2" >
                                                                     <label>Sport:</label>
                                                                     <div id="item_category" class="dropdown style-2" >
-                                                                        <a href="#" class="btn-selector" style="color: #6b6b6b" ,>Athletics</a>
+                                                                    <input name="sport" id="sport_id" value="Athletics" hidden>
+                                                                        <a href="#" class="btn-selector" style="color: #6b6b6b">Athletics</a>
                                                                         <ul class="d-col-3">
                                                                             <li><span>Archery</span></li>
                                                                             <li><span>Athletics</span></li>
@@ -656,12 +660,14 @@
                                                                     </div>
                                                             </div>
                                                         </div>
-                                                    </form>
+                                                        </div>
+
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                    <button type="button" class="btn btn-primary">Upload</button>
+                                                    <button type="submit" class="btn btn-primary">Upload</button>
                                                 </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
