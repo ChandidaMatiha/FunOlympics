@@ -21,6 +21,7 @@
     <link href="css/magnific-popup.css" rel="stylesheet" type="text/css" />
     <link href="css/jquery.countdown.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/custom-video_player.css" rel="stylesheet" type="text/css">
     <!-- color scheme -->
     <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" />
     <link href="css/coloring.css" rel="stylesheet" type="text/css" />
@@ -527,6 +528,56 @@
         </section>
         <!-- section schedule close -->
 
+        <!-- section streaming open-->
+        <section id="section-studio-type2" class="no-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <h2>Streaming Now</h2>
+                            <div class="small-border bg-color-2"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 layout-spacing">
+                        <div class="statbox widget box box-shadow">
+                            <div class="widget-header">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>Modal Video</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-content widget-content-area modal-video">
+                                <div class="modal-video-container text-center mb-5">
+                                    <img class="img-fluid" src="images/1920x582.jpg"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i id="link" class="social_youtube"></i>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header" id="exampleModalLabel">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body p-0">
+                                                    <div class="video-container">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- section streaming open-->
+
     </div>
     <!-- content close -->
 
@@ -638,6 +689,7 @@
 <script src="js/jquery.lazy.plugins.min.js"></script>
 <script src="js/jquery.smartsticky.min.js"></script>
 <script src="js/designesia.js"></script>
+<script src="js/video-custom.js"></script>
 
 
 </body>
