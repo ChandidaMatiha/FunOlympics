@@ -22,7 +22,6 @@
     <link href="css/jquery.countdown.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <!-- color scheme -->
     <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" />
     <link href="css/coloring.css" rel="stylesheet" type="text/css" />
@@ -646,6 +645,7 @@
                                                                     </div>
                                                             </div>
                                                         </div>
+                                                        </div>
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
@@ -693,7 +693,7 @@
                                                 <th>Email</th>
                                                 <th>Country</th>
                                                 <th>Something</th>
-                                                <th>Edit</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
 
@@ -704,7 +704,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2011/04/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                   <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
@@ -712,7 +715,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2011/07/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
@@ -720,7 +726,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2009/01/12</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
@@ -728,7 +737,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2012/03/29</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
@@ -736,7 +748,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2008/11/28</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
@@ -744,7 +759,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2012/12/02</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -784,7 +802,7 @@
                                                 <th>Image</th>
                                                 <th>Context</th>
                                                 <th>Date</th>
-                                                <th>Edit</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
 
@@ -795,7 +813,10 @@
                                                 <td>Image</td>
                                                 <td>Context</td>
                                                 <td>2011/04/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
@@ -803,7 +824,10 @@
                                                 <td>Image</td>
                                                 <td>Context</td>
                                                 <td>2011/07/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
@@ -811,7 +835,10 @@
                                                 <td>Image</td>
                                                 <td>Context</td>
                                                 <td>2009/01/12</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
@@ -819,7 +846,10 @@
                                                 <td>Image</td>
                                                 <td>Country name</td>
                                                 <td>2012/03/29</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
@@ -827,7 +857,10 @@
                                                 <td>Image</td>
                                                 <td>Context</td>
                                                 <td>2008/11/28</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
@@ -835,7 +868,10 @@
                                                 <td>Image</td>
                                                 <td>Context</td>
                                                 <td>2012/12/02</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -875,7 +911,7 @@
                                                 <th>Image</th>
                                                 <th>Location</th>
                                                 <th>Date</th>
-                                                <th>Edit</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
 
@@ -886,7 +922,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>
                                                 <td>2011/04/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
@@ -894,7 +933,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>
                                                 <td>2011/07/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
@@ -902,7 +944,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>>
                                                 <td>2009/01/12</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
@@ -910,7 +955,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>
                                                 <td>2012/03/29</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
@@ -918,7 +966,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>
                                                 <td>2008/11/28</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td><td>Edit icons</td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
@@ -926,7 +977,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>
                                                 <td>2012/12/02</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -966,7 +1020,7 @@
                                                 <th>winner</th>
                                                 <th>Country</th>
                                                 <th>Medal</th>
-                                                <th>Edit</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
 
@@ -977,7 +1031,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
@@ -985,7 +1042,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
@@ -993,7 +1053,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
@@ -1001,7 +1064,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
@@ -1009,7 +1075,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
@@ -1017,7 +1086,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>

@@ -573,32 +573,77 @@
 
                             <div class="col-md-4">
                                 <div class="de-image-text">
-                                    <a href="#" class="d-text">
+                                    <a href="#" class="d-text" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                         <h3><span class="id-color">01</span> Men's Volleyball</h3>
                                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
                                     </a>
                                     <img src="images/misc/podcast-1.jpg" class="img-fluid" alt="">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header" id="#exampleModal2Label">
+                                                    <h3>Men's Volleyball</h3>
+                                                </div>
+                                                <div class="modal-body p-0">
+                                                    <div class="video-container">
+                                                        <iframe src="https://www.youtube.com/embed/h7zSbAmrL7Y" width="560" height="315" allow="encrypted-media" style="border: 0px;"></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
 
                             <div class="col-md-4">
                                 <div class="de-image-text">
-                                    <a href="#" class="d-text">
+                                    <a href="#" class="d-text" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                                         <h3><span class="id-color">02</span> Men 100m Heraklion</h3>
                                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
                                     </a>
                                     <img src="images/misc/podcast-2.jpg" class="img-fluid" alt="">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header" id="exampleModal3Label">
+                                                    <h3>Mens 100m sprint</h3>
+                                                </div>
+                                                <div class="modal-body p-0">
+                                                    <div class="video-container">
+                                                        <iframe src="https://www.youtube.com/embed/h7zSbAmrL7Y" width="1000" height="500" allow="encrypted-media" style="border: 0px;"></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <div class="col-md-4">
                                 <div class="de-image-text">
-                                    <a href="#" class="d-text">
+                                    <a href="#" class="d-text" data-bs-toggle="modal" data-bs-target="#exampleModal4">
                                         <h3><span class="id-color">03</span> Women's Badminton</h3>
                                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
                                     </a>
-                                    <img src="images/misc/podcast-3.jpg" class="img-fluid" alt="">
+                                    <img src="images/misc/podcast-3.jpg" class="img-fluid" >
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header" id="#exampleModal4Label">
+                                                    <h3>Women's Badminton</h3>
+                                                </div>
+                                                <div class="modal-body p-0">
+                                                    <div class="video-container">
+                                                        <iframe src="https://www.youtube.com/embed/h7zSbAmrL7Y" width="560" height="315" allow="encrypted-media" style="border: 0px;"></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -607,87 +652,43 @@
                 </section>
             <!-- section streaming open-->
 
-            <!-- section streaming open-->
-            <section id="section-studio-type2" class="no-top">
+            <!-- section sponsor open-->
+            <section id="section-why-choose-us2" class="no-top no-bottom">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-12">
                             <div class="text-center">
-                                <h2>Streaming Now</h2>
-                                <div class="small-border bg-color-2"></div>
+                                <h2>Olympic partners</h2>
+                                <div class="small-border bg-color"></div>
                             </div>
                         </div>
-
-                        <div class="col-lg-12 layout-spacing">
-                            <div class="statbox widget box box-shadow">
-                                <div class="widget-header">
-                                    <div class="row">
-                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                            <h4>Modal Video</h4>
-                                        </div>
-                                    </div>
+                        <div class="col-md-5">
+                            <img src="images/misc/img-set.png" class="lazy img-fluid" alt="">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6 mb20">
+                                    <h4>Modern &amp; Comfortable</h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
                                 </div>
-                                <div class="widget-content widget-content-area modal-video">
-                                    <div class="modal-video-container text-center mb-5">
-                                        <img class="img-fluid" src="images/1920x582.jpg"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                        <i id="link" class="social_youtube"></i>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header" id="staticBackdropLabel">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body p-0">
-                                                        <div class="video-container">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-lg-6 mb20">
+                                    <h4>24/7 Secure Access</h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
                                 </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <!-- section streaming open-->
-
-
-
-            <section class="about-section padding-tb padding-b">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="about-image">
-                            </div>
-                        </div>
-                        <div class="col-lg-10">
-                            <div class="section-header text-center">
-                                <h2>Big Digital Meetup</h2>
-                                <p>About The Digital Meetup Conference 2021</p>
-                            </div>
-                            <div class="section-wrapper text-center">
-                                <p>Phosrescently ntiate principle centered networks via magnetic services a Entusiasticaly
-                                    streamline fulys tested metricels
-                                    apildiously evisculate standards compliant fullys tested metrics without futureproof web
-                                    services anfullys tested metrice
-                                    without creative desi futureproof web services without freproof we that and a services
-                                    enabled apidiously evisculate are
-                                    standards compliant web services are afor error free</p>
-                                <div class="about-btn-grp">
-                                    <a href="registration.html" class="lab-btn "><span>Register Now</span> </a>
-                                    <a href="pricing-plan.html" class="lab-btn"><span>Purchase Ticket</span></a>
+                                <div class="col-lg-6 mb20">
+                                    <h4>Free Drinks &amp; Snacks</h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+                                </div>
+                                <div class="col-lg-6 mb20">
+                                    <h4>Printing &amp; Scanning</h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- section sponsor open-->
 
         </div>
         <!-- content close -->

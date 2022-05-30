@@ -540,14 +540,6 @@
                     </div>
 
                     <div class="col-lg-12 layout-spacing">
-                        <div class="statbox widget box box-shadow">
-                            <div class="widget-header">
-                                <div class="row">
-                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Modal Video</h4>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="widget-content widget-content-area modal-video">
                                 <div class="modal-video-container text-center mb-5">
                                     <img class="img-fluid" src="images/1920x582.jpg"  data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -556,13 +548,14 @@
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
-                                                <div class="modal-header" id="exampleModalLabel">
+                                                <div class="modal-header" id="staticBackdropLabel">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body p-0">
                                                     <div class="video-container">
+                                                        <iframe src="https://www.youtube.com/embed/h7zSbAmrL7Y" width="560" height="315" allow="encrypted-media" style="border: 0px;"></iframe>
                                                     </div>
                                                 </div>
                                             </div>
@@ -570,7 +563,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
 
                 </div>
