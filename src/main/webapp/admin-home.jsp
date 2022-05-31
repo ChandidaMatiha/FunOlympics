@@ -709,7 +709,7 @@
                                                 <th>Email</th>
                                                 <th>Country</th>
                                                 <th>Something</th>
-                                                <th>Edit</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
 
@@ -720,7 +720,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2011/04/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
@@ -728,7 +731,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2011/07/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
@@ -736,7 +742,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2009/01/12</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
@@ -744,7 +753,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2012/03/29</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
@@ -760,7 +772,10 @@
                                                 <td>Email@gmail.com</td>
                                                 <td>Country name</td>
                                                 <td>2012/12/02</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -800,7 +815,7 @@
                                                 <th>Image</th>
                                                 <th>Context</th>
                                                 <th>Date</th>
-                                                <th>Edit</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
 
@@ -813,7 +828,10 @@
                                                 <td>Image</td>
                                                 <td>${news.context}</td>
                                                 <td>${news.date}</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </c:forEach>
 
@@ -823,7 +841,10 @@
                                                 <td>Image</td>
                                                 <td>Context</td>
                                                 <td>2011/07/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
@@ -831,7 +852,10 @@
                                                 <td>Image</td>
                                                 <td>Context</td>
                                                 <td>2009/01/12</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
@@ -839,7 +863,10 @@
                                                 <td>Image</td>
                                                 <td>Country name</td>
                                                 <td>2012/03/29</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
@@ -847,7 +874,10 @@
                                                 <td>Image</td>
                                                 <td>Context</td>
                                                 <td>2008/11/28</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
@@ -855,7 +885,10 @@
                                                 <td>Image</td>
                                                 <td>Context</td>
                                                 <td>2012/12/02</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -896,7 +929,7 @@
                                                 <th>Location</th>
                                                 <th>Date</th>
                                                 <th>context</th>
-                                                <th>Edit</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
 
@@ -911,7 +944,10 @@
                                                 <td>${event.location}</td>
                                                 <td>${event.date}</td>
                                                 <td>${event.context}</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                         </c:forEach>
                                             <tr>
@@ -920,7 +956,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>
                                                 <td>2011/07/25</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
@@ -928,7 +967,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>>
                                                 <td>2009/01/12</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
@@ -944,7 +986,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>
                                                 <td>2008/11/28</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
@@ -952,7 +997,10 @@
                                                 <td>Image</td>
                                                 <td>Beijing</td>
                                                 <td>2012/12/02</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -992,7 +1040,7 @@
                                                 <th>winner</th>
                                                 <th>Country</th>
                                                 <th>Medal</th>
-                                                <th>Edit</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
 
@@ -1006,7 +1054,10 @@
                                                 <td>${results.winnersName}</td>
                                                 <td>${results.country}</td>
                                                 <td>${results.medal}</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </c:forEach>
                                             <tr>
@@ -1015,7 +1066,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
@@ -1023,7 +1077,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
@@ -1031,7 +1088,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
@@ -1039,7 +1099,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
@@ -1047,7 +1110,10 @@
                                                 <td>Tiger Nixon</td>
                                                 <td>Country name</td>
                                                 <td>Gold</td>
-                                                <td>Edit icons</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -1060,6 +1126,101 @@
             </div>
         </section>
         <!-- section Results Tables close-->
+
+        <!-- section broadcast Tables open-->
+        <section id="section-broadcast" class="no-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <h2>Broadcast</h2>
+                            <div class="small-border bg-color-2"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h5 class="mt-0">Broadcast Table</h5>
+                                    <p class="sub-header">Inline edit like a spreadsheet, toolbar column with edit button only and without focus on first input.</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-centered mb-0" id="broadcast1">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Broadcast Name</th>
+                                                <th>Sports Name</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>sports</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>sports</td>>
+                                                <td>Gold</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>sports</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>sports</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>sports</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>sports</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- end .table-responsive-->
+                                </div> <!-- end card-body -->
+                            </div> <!-- end card -->
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
+                </div>
+            </div>
+        </section>
+        <!-- section broadcast Tables close-->
 
 
 
