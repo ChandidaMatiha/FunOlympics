@@ -134,10 +134,11 @@
 									<div class="box-rounded padding40" data-bgcolor="#ffffff">
 										<h3 class="mb10">Sign In</h3>
 										<p>Login using an existing account or create a new account <a href="register.jsp">here<span></span></a>.</p>
-										<form name="contactForm" id='contact_form' class="form-border" method="post" action='blank.php'>
+										<form name="contactForm" id='contact_form' class="form-border" method="post" action='ServletOlympics'>
+                                            <input name="command" value="Login_User" hidden>
 
                                             <div class="field-set">
-                                                <input type='text' name='email' id='email' class="form-control" placeholder="username">
+                                                <input type='text' name='email' id='email' class="form-control" value="${email}" placeholder="username">
                                             </div>
 											
 											 <div class="field-set">
@@ -145,7 +146,7 @@
                                             </div>
 											
 											<div class="field-set">
-												<input type='submit' id='send_message' value='Submit' class="btn btn-main btn-fullwidth color-2">
+												<input type='submit' id='send_message' onclick="document.getElementById('submitUser').click()" value='Submit' class="btn btn-main btn-fullwidth color-2">
 											</div>
 											
 											<div class="clearfix"></div>
@@ -158,6 +159,7 @@
                                             <li><a href="#">Facebook</a></li>
                                             <li><a href="#">Google</a></li>
                                         </ul>
+                                            <input type="submit" id="submitUser" hidden value="submit">
                                         <!-- social icons close -->
                                 </form>
 									</div>

@@ -8,7 +8,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Connection_Util {
@@ -108,28 +112,27 @@ public class Connection_Util {
         String msg=null;
         String sql=null;
         try {
+            myConn = dataSource.getConnection();
             if(action.equals("deleting")){
-                myConn = dataSource.getConnection();
-                sql = "Delete form results where(id='"+rs.getId()+"');";
+
+                sql = "Delete from results where(id='"+rs.getId()+"');";
                 myStmt = myConn.prepareStatement(sql);
-                myStmt.execute();
             }else{
                 if(action.equals("uploading")){
-                    myConn = dataSource.getConnection();
                     sql = "INSERT INTO results (`sportTitle`, `winnersName`, `country`, `medal`) VALUES (?,?,?,?);";
 
                 }else if(action.equals("updating")){
-                    myConn = dataSource.getConnection();
-                    sql = "UPDATE results set `sportTitle`, `winnersName`, `country`, `medal` where (id='"+rs.getId()+"')";
+                    sql = "UPDATE results set `sportTitle`=?, `winnersName`=?, `country`=?, `medal`=? where (id='"+rs.getId()+"')";
                 }
                 myStmt = myConn.prepareStatement(sql);
                 myStmt.setString(1, rs.getSportTitle());
                 myStmt.setString(2, rs.getWinnersName());
                 myStmt.setString(3, rs.getCountry());
                 myStmt.setString(4, rs.getMedal());
-                myStmt.execute();
-                msg="Successful";
+
             }
+            myStmt.execute();
+            msg="Successful";
 
         }catch (Exception e){
             System.out.println(e);
@@ -181,30 +184,27 @@ public class Connection_Util {
         ResultSet myRs=null;
         String msg=null;
         String sql=null;
-        try {
+        try {  myConn = dataSource.getConnection();
             if(action.equals("deleting")){
-                myConn = dataSource.getConnection();
-                sql = "Delete form news where(id='"+ns.getId()+"');";
+
+                sql = "Delete from news where(id='"+ns.getId()+"');";
                 myStmt = myConn.prepareStatement(sql);
-                myStmt.execute();
             }else{
                 if(action.equals("uploading")){
-                    myConn = dataSource.getConnection();
                     sql = "INSERT INTO news (`newsTitle`, `date`, `context`, `image`) VALUES (?,?,?,?);";
 
                 }else if(action.equals("updating")){
-                    myConn = dataSource.getConnection();
-                    sql = "UPDATE news set `newsTitle`, `date`, `context`, `image` where (id='"+ns.getId()+"')";
+                    sql = "UPDATE news set `newsTitle`=?, `date`=?, `context`=?, `image`=? where (id='"+ns.getId()+"')";
                 }
                 myStmt = myConn.prepareStatement(sql);
                 myStmt.setString(1, ns.getNewsTitle());
                 myStmt.setString(2, ns.getDate());
                 myStmt.setString(3, ns.getContext());
                 myStmt.setString(4, ns.getImage());
-                myStmt.execute();
-                msg="Successful";
-            }
 
+            }
+            myStmt.execute();
+            msg="Successful";
         }catch (Exception e){
             System.out.println(e);
             msg="Error";
@@ -217,16 +217,25 @@ public class Connection_Util {
     public List<event> getEvent(event ev, String action) throws Exception {
         List<event> events= new ArrayList<>();
         String msg="nothing";
-        if(!action.equals("login")){
+        if(action.equals("deleting")||action.equals("updating")||action.equals("uploading")){
             msg=setEvent(ev,action);
         }
-        if(msg.equals("Successful")||action.equals("login")){
+        if(msg.equals("Successful")||action.equals("login")||action.equals("login1")){
             Connection myConn=null;
             PreparedStatement myStmt=null;
             ResultSet myRs=null;
+            String sql=null;
             try {
                 myConn = dataSource.getConnection();
-                String sql = "Select * from events";
+                LocalDate today=LocalDate.now();
+                if(action.equals("login1")) {
+                    DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    //today = LocalDate.now();
+                    String tomorrow = (today.plusDays(1)).format(dateTimeFormatter);
+                    sql = "Select * from events where date like '%"+tomorrow+"%';";
+                }else {
+                    sql = "Select * from events ";
+                }
                 myStmt = myConn.prepareStatement(sql);
                 myRs=myStmt.executeQuery();
                 while(myRs.next()){
@@ -236,7 +245,20 @@ public class Connection_Util {
                     String location=myRs.getString("location");
                     String context=myRs.getString("context");
                     String image=myRs.getString("image");
-                    event evt=new event(id, eventTitle,date,location,context,image);
+                    event evt;
+                    if(action.equals("login1")) {
+                        DateTimeFormatter dateTimeFormatter2=DateTimeFormatter.ofPattern("dd");
+                        DateTimeFormatter mouthDa=DateTimeFormatter.ofPattern("MMMM");
+                        DateTimeFormatter year=DateTimeFormatter.ofPattern("yyyy");
+                        String daynumber = (today.plusDays(1)).format(dateTimeFormatter2);
+                        String month = (today.plusDays(1)).format(mouthDa);
+                        String yearnum = (today.plusDays(1)).format(year);
+                        System.out.println(yearnum);
+                        evt=new event(id, eventTitle,date,location,context,image,daynumber,month,yearnum);
+                    }else {
+                        evt=new event(id, eventTitle,date,location,context,image);
+                    }
+
                     events.add(evt);
                 }
 
@@ -250,6 +272,32 @@ public class Connection_Util {
         return events;
     }
 
+    public User_account getUserInfo(String email, String password) throws Exception {
+        String login="login";
+        User_account userinfo=null;
+        Connection myConn=null;
+        ResultSet myRs=null;
+        PreparedStatement myStmt=null;
+        try{
+            myConn=dataSource.getConnection();
+            String sql ="SELECT * FROM user_account where `email`='"+email+"' and password='"+password+"'";
+            myStmt=myConn.prepareStatement(sql);
+            myRs=myStmt.executeQuery();
+            while(myRs.next()) {
+                String userId="0";
+                String  fullName=myRs.getString("full_name");
+                String userType=myRs.getString("user_type");
+                userinfo=new User_account(userId,fullName,email,"nothing",userType);
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }finally {
+            close(myConn,myStmt,myRs);
+        }
+
+        return userinfo;
+    }
+
     private String setEvent(event ev, String action) throws Exception{
         Connection myConn=null;
         PreparedStatement myStmt=null;
@@ -257,20 +305,14 @@ public class Connection_Util {
         String msg=null;
         String sql=null;
         System.out.println(action);
-        try {
+        try { myConn = dataSource.getConnection();
             if(action.equals("deleting")){
-                myConn = dataSource.getConnection();
-                sql = "Delete form events where(id='"+ev.getId()+"');";
+                sql = "Delete from events where(id='"+ev.getId()+"');";
                 myStmt = myConn.prepareStatement(sql);
-                myStmt.execute();
             }else{
                 if(action.equals("uploading")){
-
-                    myConn = dataSource.getConnection();
                     sql = "INSERT INTO events (`eventTitle`, `date`, `location`, `context`, `image`) VALUES (?,?,?,?,?);";
-
                 }else if(action.equals("updating")){
-                    myConn = dataSource.getConnection();
                     sql = "UPDATE events set `eventTitle`=?, `date`=?, `location`=?, `context`=?, `image`=? where (id='"+ev.getId()+"')";
                 }
                 myStmt = myConn.prepareStatement(sql);
@@ -279,10 +321,10 @@ public class Connection_Util {
                 myStmt.setString(3, ev.getLocation());
                 myStmt.setString(4, ev.getContext());
                 myStmt.setString(5, ev.getImage());
-                myStmt.execute();
-                msg="Successful";
-            }
 
+            }
+            myStmt.execute();
+            msg="Successful";
         }catch (Exception e){
             System.out.println(e);
             msg="Error";
@@ -295,25 +337,49 @@ public class Connection_Util {
     public List<Broadcast> getBroadcast(Broadcast bc, String action) throws Exception {
         List<Broadcast> broadcastsList= new ArrayList<>();
         String msg="nothing";
-        if(!action.equals("login")){
+
+        if(action.equals("deleting")||action.equals("updating")||action.equals("uploading")){
             msg=setBroadcast(bc,action);
         }
-        if(msg.equals("Successful")||action.equals("login")){
+        if(msg.equals("Successful")||action.equals("login")||action.equals("login1")){
             Connection myConn=null;
             PreparedStatement myStmt=null;
             ResultSet myRs=null;
+            String sql;
             try {
                 myConn = dataSource.getConnection();
-                String sql = "Select * from broadcasting b, url u where b.sport=u.sport";
+                if(action.equals("login1")){
+                    Date date = new Date();
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    String  strDate = formatter.format(date);
+
+                    sql = "Select * from broadcasting b, url u,events e  where b.sport=u.sport and b.sport=e.eventTitle and date like '%"+strDate+"%';";
+                }else{
+                    sql = "Select * from broadcasting";
+                }
                 myStmt = myConn.prepareStatement(sql);
                 myRs=myStmt.executeQuery();
+                int count=0;
                 while(myRs.next()){
                     String id=myRs.getString("id");
                     String broadcastname=myRs.getString("broadcastname");
                     String sport=myRs.getString("sport");
-                    String url=myRs.getString("url");
-                    Broadcast evt=new Broadcast(id,broadcastname,sport,url);
-                    broadcastsList.add(evt);
+                    if(action.equals("login1")&& count<3){
+                        count+=1;
+                        System.out.println(action);
+                        String url=myRs.getString("url");
+                        String eventTitle=myRs.getString("eventTitle");
+                        String date=myRs.getString("date");
+                        String location=myRs.getString("location");
+                        String context=myRs.getString("context");
+                        String image=myRs.getString("image");
+                        Broadcast evt=new Broadcast(id,broadcastname,sport,url.replace("watch?v=", "embed/"),eventTitle,date,location,context,image);
+                        broadcastsList.add(evt);
+                    }else{
+                        Broadcast evt=new Broadcast(id,broadcastname,sport,"Nothing");
+                        broadcastsList.add(evt);
+                    }
+
                 }
 
             }catch (Exception e){
@@ -336,26 +402,23 @@ public class Connection_Util {
         try {
             myConn = dataSource.getConnection();
             if(action.equals("deleting")){
-                myConn = dataSource.getConnection();
-                sql = "Delete form broadcasting where(id='"+bc.getId()+"');";
+                sql = "Delete from broadcasting where(id='"+bc.getId()+"');";
                 myStmt = myConn.prepareStatement(sql);
-                myStmt.execute();
             }else{
                 if(action.equals("uploading")){
                     sql = "INSERT INTO broadcasting (`broadcastname`, `sport`) VALUES (?,?);";
                     myStmt = myConn.prepareStatement(sql);
                 }else if(action.equals("updating")){
-                    myConn = dataSource.getConnection();
-                    sql = "UPDATE broadcasting set `broadcastname`=?, `sport`=?, where (id='"+bc.getId()+"')";
+                    sql = "UPDATE broadcasting set `broadcastname`=?, `sport`=? where (id='"+bc.getId()+"')";
                 }
                 myStmt = myConn.prepareStatement(sql);
                 myStmt.setString(1, bc.getBroadcastName());
                 myStmt.setString(2, bc.getSportName());
 
-                myStmt.execute();
-                msg="Successful";
-            }
 
+            }
+            myStmt.execute();
+            msg="Successful";
         }catch (Exception e){
             System.out.println(e);
             msg="Error";

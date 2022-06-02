@@ -11,6 +11,14 @@ public class results {
         this.medal = medal;
     }
 
+    public results(String id) {
+        this.id = id;
+    }
+
+    public results() {
+
+    }
+
     public String getId() {
         return id;
     }

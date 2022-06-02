@@ -271,7 +271,7 @@
                                 <div class="col-md-4 mb60">
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" class="btn btn-primary" onclick="cleanNews()" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         News
                                     </button>
 
@@ -283,38 +283,38 @@
                                                     <h5 class="modal-title" id="exampleModalLabel">News</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-
+                                                <div class="modal-body">
                                                     <form method="post" action="ServletOlympics" name="contactForm"  enctype="multipart/form-data"  id='news' class="form-border">
-                                                        <div class="modal-body">
                                                             <input type="hidden" name="command" value="News">
-                                                        <input type="hidden" name="action" value="uploading">
+                                                        <input type="hidden" id="actionNews" name="action" value="uploading">
+                                                            <input type="hidden" id="idNews" name="id" value="0">
                                                         <div class="row">
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>News Title:</label>
-                                                                    <input type='text' name='newsTitle' id='name' class="form-control" value="${user_acc.full_name}">
+                                                                    <input type='text' name='newsTitle' id='newsTitle' class="form-control" value="${user_acc.full_name}">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Image:</label>
-                                                                    <input type='text' name='Image' id='email' class="form-control" value="${user_acc.email}">
+                                                                    <input type='text' name='Image' id='imageNew' class="form-control" value="${user_acc.email}">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Date:</label>
-                                                                    <input type='datetime-local' name='date' id='password' class="form-control" placeholder="select Date">
+                                                                    <input type='datetime-local' name='date' id='dateNews' class="form-control" placeholder="select Date">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Context:</label>
-                                                                    <input type='text' name='context' id='re-password' class="form-control">
+                                                                    <textarea type='text' name='context' id='contextNews' class="form-control"></textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="containers">
@@ -348,15 +348,15 @@
                                                             </div>
 
                                                         </div>
-
+                                                        <input id="default-btn21" name="image" type="file" hidden>
+                                                    </form>
                                                 </div>
 
                                                 <div class="modal-footer">
                                                     <button class="btn btn-secondary" name="21" onclick="defaultBtnActive()" type="button">Choose an image</button>
-                                                    <input id="default-btn21" name="image" type="file" hidden>
                                                     <button type="button" onclick="document.getElementById('news').submit()" class="btn btn-primary">Upload</button>
                                                 </div>
-                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
@@ -400,7 +400,7 @@
                                 <div class="col-md-4 mb60">
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="cleanEvent()" data-bs-target="#staticBackdrop">
                                         Event
                                     </button>
 
@@ -416,34 +416,73 @@
                                                     <form method="post" action="ServletOlympics" enctype="multipart/form-data"  name="contactForm" id='event' class="form-border">
                                                         <div class="modal-body">
                                                             <input type="hidden" name="command" value="Event">
-                                                        <input type="hidden" name="action" value="uploading">
+                                                        <input type="hidden" name="action"  id="actionEvent" value="uploading">
+                                                            <input type="hidden" name="id" id="idEvent" value="uploading">
                                                         <div class="row">
 
                                                             <div class="col-md-6">
-                                                                <div class="field-set">
+                                                                <div class="field-set" class="dropdown style-2" >
                                                                     <label>Event Title:</label>
-                                                                    <input type='text' name='eventTitle' id='event-t' class="form-control" value="${user_acc.full_name}">
+                                                                    <div id="item_category2" class="dropdown style-2" >
+                                                                        <input name="eventTitle" class="inputing" id="sport_id2" value="Athletics" hidden>
+                                                                        <a href="#" class="btn-selector" id="sportEvent" style="color: #6b6b6b">Athletics</a>
+                                                                        <ul class="d-col-3">
+                                                                            <li><span>Archery</span></li>
+                                                                            <li><span>Athletics</span></li>
+                                                                            <li><span>Artistic swimming</span></li>
+                                                                            <li><span>Badminton</span></li>
+                                                                            <li><span>Basketball</span></li>
+                                                                            <li><span>Baseball</span></li>
+                                                                            <li><span>Curling</span></li>
+                                                                            <li><span>Canoe</span></li>
+                                                                            <li><span>Diving</span></li>
+                                                                            <li><span>Equestrian</span></li>
+                                                                            <li><span>Football</span></li>
+                                                                            <li><span>Fencing</span></li>
+                                                                            <li><span>Futsal</span></li>
+                                                                            <li><span>Gymnastics</span></li>
+                                                                            <li><span>Golf</span></li>
+                                                                            <li><span>Handball</span></li>
+                                                                            <li><span>Hockey</span></li>
+                                                                            <li><span>Ice hockey</span></li>
+                                                                            <li><span>Judo</span></li>
+                                                                            <li><span>Karate</span></li>
+                                                                            <li><span>Luge</span></li>
+                                                                            <li><span>Mountain bike</span></li>
+                                                                            <li><span>Nordic combined</span></li>
+                                                                            <li><span>Road cycling</span></li>
+                                                                            <li><span>Rowing</span></li>
+                                                                            <li><span>Rugby</span></li>
+                                                                            <li><span>Shooting</span></li>
+                                                                            <li><span>Sailing</span></li>
+                                                                            <li><span>Surfing</span></li>
+                                                                            <li><span>tennis</span></li>
+                                                                            <li><span>Volleyball</span></li>
+                                                                            <li><span>Water polo</span></li>
+                                                                            <li><span>Wrestling</span></li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Date:</label>
-                                                                    <input type='datetime-local' name='date' id='date1' class="form-control" placeholder="Select date">
+                                                                    <input type='datetime-local' name='date' id='dateEvent' class="form-control" placeholder="Select date">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Location:</label>
-                                                                    <input type='text' name='location' id='location' class="form-control">
+                                                                    <input type='text' name='location' id='locationEvent' class="form-control">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Context:</label>
-                                                                    <input type='text' name='context' id='context1' class="form-control">
+                                                                    <input type='text' name='context' id='contextEvent' class="form-control">
                                                                 </div>
                                                             </div>
 
@@ -472,14 +511,14 @@
 
 
                                                         </div>
-
+                                                            <input id="default-btn22" name="image" type="file" hidden>
                                                 </div>
+                                                    </form>
                                                 <div class="modal-footer">
-                                                    <button class="btn btn-secondary" onclick="defaultBtnActive2()">Choose an image 22</button>
-                                                    <input id="default-btn22" name="image" type="file" hidden>
+                                                    <button class="btn btn-secondary" onclick="defaultBtnActive2()">Choose an image</button>
                                                     <button type="button" onclick="document.getElementById('event').submit()" class="btn btn-primary">Upload</button>
                                                 </div>
-                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
@@ -527,7 +566,7 @@
                                 <div class="col-md-4 mb60">
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="cleanResults()" data-bs-target="#exampleModalToggle2">
                                         Results
                                     </button>
 
@@ -542,34 +581,35 @@
                                                 <div class="modal-body">
                                                     <form method="post" action="ServletOlympics" name="contactForm" enctype="multipart/form-data"  id='contact_form2' class="form-border">
                                                         <input type="hidden" name="command" value="Results">
-                                                        <input type="hidden" name="action" value="uploading">
+                                                        <input type="hidden" name="action" id="actionResults" value="uploading">
+                                                        <input type="hidden" name="id" id="idResults" value="uploading">
                                                         <div class="row">
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Sports Title:</label>
-                                                                    <input type='text' name='sportTitle' id='sports-t' class="form-control" value="${user_acc.full_name}">
+                                                                    <input type='text' name='sportTitle' id='resultsSport' class="form-control" value="${user_acc.full_name}">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>winner's name:</label>
-                                                                    <input type='text' name='winnersName' id='winner-n' class="form-control" value="${user_acc.email}">
+                                                                    <input type='text' name='winnersName' id='winnerResults' class="form-control" value="${user_acc.email}">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Country:</label>
-                                                                    <input type='text' name='country' id='country' class="form-control">
+                                                                    <input type='text' name='country' id='countryResults' class="form-control">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="field-set">
                                                                     <label>Medal:</label>
-                                                                    <input type='text' name='medal' id='medal' class="form-control">
+                                                                    <input type='text' name='medal' id='medalResults' class="form-control">
                                                                 </div>
                                                             </div>
 
@@ -590,7 +630,7 @@
                                 <div class="col-md-4 mb60">
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="cleanBroadcast()" data-bs-target="#staticBackdrop1">
                                         Broadcast
                                     </button>
 
@@ -599,15 +639,15 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdrop1Label">Event</h5>
+                                                    <h5 class="modal-title" id="staticBackdrop1Label">Broadcast</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
 
                                                     <form method="post" action="ServletOlympics" name="contactForm" id='contact_form3' class="form-border">
                                                         <div class="modal-body">
                                                         <input type="hidden" name="command" value="Broadcast">
-                                                        <input type="hidden" name="action" value="uploading">
-                                                        <input type="hidden" name="id" value="0">
+                                                        <input type="hidden" name="action" id="actionBroadcast" value="uploading">
+                                                        <input type="hidden" name="id" id="idBroadcast"  value="0">
                                                         <div class="row">
 
                                                             <div class="col-md-6">
@@ -621,7 +661,7 @@
                                                                     <label>Sport:</label>
                                                                     <div id="item_category" class="dropdown style-2" >
                                                                     <input name="sport" id="sport_id" value="Athletics" hidden>
-                                                                        <a href="#" class="btn-selector" style="color: #6b6b6b">Athletics</a>
+                                                                        <a href="#" class="btn-selector" id="sportBroadcast" style="color: #6b6b6b">Athletics</a>
                                                                         <ul class="d-col-3">
                                                                             <li><span>Archery</span></li>
                                                                             <li><span>Athletics</span></li>
@@ -732,7 +772,7 @@
                                                 <td>Country name</td>
                                                 <td>2011/07/25</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalToggl" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
                                                     <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
                                                 </td>
                                             </tr>
@@ -815,6 +855,7 @@
                                                 <th>Image</th>
                                                 <th>Context</th>
                                                 <th>Date</th>
+                                                <th style="display:none;">id</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -828,68 +869,13 @@
                                                 <td>Image</td>
                                                 <td>${news.context}</td>
                                                 <td>${news.date}</td>
+                                                <td style="display:none;">${news.id}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="editNews(this)" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" id="${news.id}" onclick="deleteNews(this.id);" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
                                                 </td>
                                             </tr>
                                             </c:forEach>
-
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Garrett Winters</td>
-                                                <td>Image</td>
-                                                <td>Context</td>
-                                                <td>2011/07/25</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Ashton Cox</td>
-                                                <td>Image</td>
-                                                <td>Context</td>
-                                                <td>2009/01/12</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Cedric Kelly</td>
-                                                <td>Image</td>
-                                                <td>Country name</td>
-                                                <td>2012/03/29</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Airi Satou</td>
-                                                <td>Image</td>
-                                                <td>Context</td>
-                                                <td>2008/11/28</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Brielle Williamson</td>
-                                                <td>Image</td>
-                                                <td>Context</td>
-                                                <td>2012/12/02</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                     </div> <!-- end .table-responsive-->
@@ -929,6 +915,7 @@
                                                 <th>Location</th>
                                                 <th>Date</th>
                                                 <th>context</th>
+                                                <th style="display:none;">id</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -944,64 +931,13 @@
                                                 <td>${event.location}</td>
                                                 <td>${event.date}</td>
                                                 <td>${event.context}</td>
+                                                <td style="display:none;">${event.id}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="editEvent(this)"  class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" id="${event.id}" onclick="deleteEvent(this.id);" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
                                                 </td>
                                             </tr>
                                         </c:forEach>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Garrett Winters</td>
-                                                <td>Image</td>
-                                                <td>Beijing</td>
-                                                <td>2011/07/25</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Ashton Cox</td>
-                                                <td>Image</td>
-                                                <td>Beijing</td>>
-                                                <td>2009/01/12</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Cedric Kelly</td>
-                                                <td>Image</td>
-                                                <td>Beijing</td>
-                                                <td>2012/03/29</td>
-                                                <td>Edit icons</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Airi Satou</td>
-                                                <td>Image</td>
-                                                <td>Beijing</td>
-                                                <td>2008/11/28</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Brielle Williamson</td>
-                                                <td>Image</td>
-                                                <td>Beijing</td>
-                                                <td>2012/12/02</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                     </div> <!-- end .table-responsive-->
@@ -1040,6 +976,7 @@
                                                 <th>winner</th>
                                                 <th>Country</th>
                                                 <th>Medal</th>
+                                                <th style="display:none;">id</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -1054,67 +991,13 @@
                                                 <td>${results.winnersName}</td>
                                                 <td>${results.country}</td>
                                                 <td>${results.medal}</td>
+                                                <td style="display:none;">${results.id}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2" onclick="editResults(this)"  class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" id="${results.id}" onclick="deleteResults(this.id);" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
                                                 </td>
                                             </tr>
                                             </c:forEach>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>Country name</td>
-                                                <td>Gold</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>Country name</td>
-                                                <td>Gold</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>Country name</td>
-                                                <td>Gold</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>Country name</td>
-                                                <td>Gold</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>Country name</td>
-                                                <td>Gold</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                     </div> <!-- end .table-responsive-->
@@ -1151,66 +1034,27 @@
                                                 <th>#</th>
                                                 <th>Broadcast Name</th>
                                                 <th>Sports Name</th>
+                                                <th style="display:none;">id</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
 
                                             <tbody>
+                                            <c:set var="countRepre4" value="0" scope="page"/>
+                                            <c:forEach var="broadcast" items="${broadcastInfo}">
+                                                <c:set var="countRepre4" value="${countRepre4+1}" scope="page"/>
                                             <tr>
-                                                <td>1</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
+                                                <td>${countRepre4}</td>
+                                                <td>${broadcast.broadcastName}</td>
+                                                <td>${broadcast.sportName}</td>
+                                                <td style="display:none;">${broadcast.id}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick="editBroadcast(this)" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
+                                                    <button type="button" id="${broadcast.id}" onclick="deleteBroadcast(this.id);" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>sports</td>>
-                                                <td>Gold</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>sports</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-lg"></i></button>
-                                                </td>
-                                            </tr>
-                                            </tbody>
+                                            </c:forEach>
+                                            </tbody>s
                                         </table>
                                     </div> <!-- end .table-responsive-->
                                 </div> <!-- end card-body -->
@@ -1311,6 +1155,125 @@
         </div>
     </footer>
     <!-- footer close -->
+
+
+    <!--- deleting info-->
+    <form style="display:none;" id="deleteResults" method="post" action="ServletOlympics">
+        <input type="hidden" name="command" value="deleteResults">
+        <input type="hidden" name="user_type" value="${userInfo.user_type}">
+        <input type="hidden" name="id" id="id_results" value="">
+    </form>
+    <form style="display:none;" id="deleteEvent" method="post" action="ServletOlympics">
+        <input type="hidden" name="command" value="deleteEvent">
+        <input type="hidden" name="user_type" value="${userInfo.user_type}">
+        <input type="hidden" name="id" id="id_event" value="">
+    </form>
+    <form style="display:none;" id="deleteNews" method="post" action="ServletOlympics">
+        <input type="hidden" name="command" value="deleteNews">
+        <input type="hidden" name="user_type" value="${userInfo.user_type}">
+        <input type="hidden" name="id" id="id_news" value="">
+    </form>
+    <form style="display:none;" id="deleteBroadcast" method="post" action="ServletOlympics">
+        <input type="hidden" name="command" value="deleteBroadcast">
+        <input type="hidden" name="user_type" value="${userInfo.user_type}">
+        <input type="hidden" name="id" id="id_broadcast" value="">
+    </form>
+
+<script>
+
+    function deleteBroadcast(id_ts){
+        document.getElementById('id_broadcast').value=id_ts;
+        document.getElementById('deleteBroadcast').submit();
+    }
+    function deleteResults(id_ts){
+        document.getElementById('id_results').value=id_ts;
+        document.getElementById('deleteResults').submit();
+    }
+    function deleteEvent(id_ts){
+        document.getElementById('id_event').value=id_ts;
+        document.getElementById('deleteEvent').submit();
+    }
+
+   function deleteNews(id_ts){
+        document.getElementById('id_news').value=id_ts;
+        document.getElementById('deleteNews').submit();
+    }
+
+    function editNews(ctl) {
+        _row = $(ctl).parents("tr");
+        var cols = _row.children("td");
+        $("#idNews").val($(cols[5]).text());
+        $("#newsTitle").val($(cols[1]).text());
+        $("#contextNews").val($(cols[3]).text());
+        $("#dateNews").val($(cols[4]).text());
+        $("#actionNews").val("updating");
+    }
+    function cleanNews(){
+        $("#idNews").val('0');
+        $("#newsTitle").val(null);
+        $("#contextNews").val(null);
+        $("#dateNews").val(null);
+        $("#actionNews").val("uploading");
+    }
+
+    function editResults(ctl) {
+        _row = $(ctl).parents("tr");
+        var cols = _row.children("td");
+        $("#idResults").val($(cols[5]).text());
+        $("#resultsSport").val($(cols[1]).text());
+        $("#winnerResults").val($(cols[2]).text());
+        $("#countryResults").val($(cols[3]).text());
+        $("#medalResults").val($(cols[4]).text());
+        $("#actionResults").val("updating");
+    }
+    function cleanResults(){
+        $("#idResults").val('0');
+        $("#resultsSport").val(null);
+        $("#winnerResults").val(null);
+        $("#countryResults").val(null);
+        $("#medalResults").val(null);
+        $("#actionResults").val("uploading");
+    }
+
+    function editEvent(ctl) {
+        _row = $(ctl).parents("tr");
+        var cols = _row.children("td");
+        $("#idEvent").val($(cols[6]).text());
+        $("#sportEvent").html($(cols[1]).text());
+        $("#sport_id2").val($(cols[1]).text());
+        $("#locationEvent").val($(cols[3]).text());
+        $("#dateEvent").val($(cols[4]).text());
+        $("#contextEvent").val($(cols[5]).text());
+        $("#actionEvent").val("updating");
+    }
+    function cleanEvent(){
+        $("#idEvent").val('0');
+        $("#sport_id2").val("Athletics");
+        $("#sportEvent").html("Athletics");
+        $("#locationEvent").val(null);
+        $("#dateEvent").val(null);
+        $("#contextEvent").val(null);
+        $("#actionEvent").val("uploading");
+    }
+
+    function editBroadcast(ctl) {
+        _row = $(ctl).parents("tr");
+        var cols = _row.children("td");
+        $("#idBroadcast").val($(cols[3]).text());
+        $("#broadcast").val($(cols[1]).text());
+        $("#sportBroadcast").html($(cols[2]).text());
+        $("#sport_id").val($(cols[2]).text());
+        $("#actionBroadcast").val("updating");
+    }
+    function cleanBroadcast(){
+        $("#idBroadcast").val('0');
+        $("#broadcast").val(null);
+        $("#sportBroadcast").html("Athletics");
+        $("#sport_id").val("Athletics");
+        $("#actionBroadcast").val("uploading");
+    }
+</script>
+
 
 </div>
 

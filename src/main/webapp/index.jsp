@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -421,71 +423,33 @@
                                 <div class="small-border bg-color-2"></div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 mb30">
-                            <div class="de-event-item">
-                                <div class="d-content">
-                                    <div class="d-image">
-                                        <span class="d-image-wrap"><img alt="" src="images/events/event-a.jpg" class="lazy"></span>
-                                        <span class="d-date">
-                                                <span class="d-mm">Nov</span>
-                                                <span class="d-dd">28</span>
-                                                <span class="d-yy">2021</span>
-                                            </span>
-                                        <span class="d-shadow"></span>
-                                        <span class="d-location"><i class="fa fa-map-marker id-color-2"></i> Beijing, China</span>
-                                    </div>
-                                    <div class="d-text">
-                                        <h4>Javelin Throw</h4>
-                                        <p>Olympic medallists Bobby Lammie and Eve Muirhead beat Switzerland in the final, as the Germans claim the third-placed playoff in early Saturday action...</p>
-                                        <a class="btn-main" href="event-single.html">Event details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
+                        <c:set var="countRepre4" value="0" scope="page"/>
+                        <c:forEach var="schedule" items="${scheduleInfo2}">
+                        <c:set var="countRepre4" value="${countRepre4+1}" scope="page"/>
                         <div class="col-lg-4 col-md-6 mb30">
                             <div class="de-event-item">
                                 <div class="d-content">
                                     <div class="d-image">
-                                        <span class="d-image-wrap"><img alt="" src="images/events/event-b.jpg" class="lazy"></span>
+                                        <span class="d-image-wrap"><img alt="" src="EventImage/${schedule.image}" class="lazy"></span>
                                         <span class="d-date">
-                                                <span class="d-mm">Nov</span>
-                                                <span class="d-dd">28</span>
-                                                <span class="d-yy">2021</span>
+                                                <span class="d-mm">${schedule.dayNum}</span>
+                                                <span class="d-dd">${schedule.day}</span>
+                                                <span class="d-yy">${schedule.year}</span>
                                             </span>
                                         <span class="d-shadow"></span>
-                                        <span class="d-location"><i class="fa fa-map-marker id-color-2"></i> Shanghai, China</span>
+                                        <span class="d-location"><i class="fa fa-map-marker id-color-2"></i> ${schedule.location} </span>
                                     </div>
                                     <div class="d-text">
-                                        <h4>Weightlifting</h4>
-                                        <p>Watch the men's 102kg, the women's 87kg and the men's 109kg competitions from the Weightlifting Women World Championships in Heraklion, Greece....</p>
+                                        <h4>${schedule.year}</h4>
+                                        <p>${schedule.context}...</p>
                                         <a class="btn-main" href="event-single.html">Event details</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </c:forEach>
 
-                        <div class="col-lg-4 col-md-6 mb30">
-                            <div class="de-event-item">
-                                <div class="d-content">
-                                    <div class="d-image">
-                                        <span class="d-image-wrap"><img alt="" src="images/events/event-c.jpg" class="lazy"></span>
-                                        <span class="d-date">
-                                                <span class="d-mm">Nov</span>
-                                                <span class="d-dd">28</span>
-                                                <span class="d-yy">2021</span>
-                                            </span>
-                                        <span class="d-shadow"></span>
-                                        <span class="d-location"><i class="fa fa-map-marker id-color-2"></i> Beijing, China</span>
-                                    </div>
-                                    <div class="d-text">
-                                        <h4>Rhythmic Gymnastics</h4>
-                                        <p>RGF take group all-around gold at 2021 Rhythmic Gymnastics World ChampionshipsAfter ROC lost the Olympic group all-around title for the first time...</p>
-                                        <a class="btn-main" href="event-single.html">Event details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -503,56 +467,25 @@
                         </div>
                             <div class="container">
                                 <div class="row">
+                                    <c:set var="countRepre4" value="0" scope="page"/>
+                                    <c:forEach var="schedule" items="${newsInfo}">
                                     <div class="col-lg-4 col-md-6 mb30">
                                         <div class="bloglist item">
                                             <div class="post-content">
                                                 <div class="post-image">
-                                                    <img alt="" src="images/news/news-1.jpg" class="lazy">
+                                                    <img alt="" src="NewsImage/${schedule.image}"  class="lazy">
                                                 </div>
                                                 <div class="post-text">
                                                     <span class="p-tagline">News &amp; Updates</span>
-                                                    <span class="p-date">October 28, 2020</span>
-                                                    <h4><a href="news-single.html">Inviting Nature Into Workspace<span></span></a></h4>
-                                                    <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                                                    <a class="btn-main" href="news-single.html">Read more</a>
+                                                    <span class="p-date">${schedule.date}</span>
+                                                    <h4><a href="news-single.html">${schedule.newsTitle}<span></span></a></h4>
+                                                    <p>${schedule.context}...</p>
+                                                    <a class="btn-main" href="News.jsp">Read more</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-lg-4 col-md-6 mb30">
-                                        <div class="bloglist item">
-                                            <div class="post-content">
-                                                <div class="post-image">
-                                                    <img alt="" src="images/news/news-2.jpg" class="lazy">
-                                                </div>
-                                                <div class="post-text">
-                                                    <span class="p-tagline">News &amp; Updates</span>
-                                                    <span class="p-date">October 28, 2020</span>
-                                                    <h4><a href="news-single.html">Tips to Help Boost Focus at Work<span></span></a></h4>
-                                                    <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                                                    <a class="btn-main" href="news-single.html">Read more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-6 mb30">
-                                        <div class="bloglist item">
-                                            <div class="post-content">
-                                                <div class="post-image">
-                                                    <img alt="" src="images/news/news-3.jpg" class="lazy">
-                                                </div>
-                                                <div class="post-text">
-                                                    <span class="p-tagline">News &amp; Updates</span>
-                                                    <span class="p-date">October 28, 2020</span>
-                                                    <h4><a href="news-single.html">Tips to Improving Your Productivity<span></span></a></h4>
-                                                    <p>Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
-                                                    <a class="btn-main" href="news-single.html">Read more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                     </div>
@@ -570,82 +503,35 @@
                                 <div class="small-border bg-color-2"></div>
                             </div>
                         </div>
-
+                        <c:set var="countRepre4" value="0" scope="page"/>
+                        <c:forEach var="schedule" items="${scheduleInfo}">
+                            <c:set var="countRepre4" value="${countRepre4+1}" scope="page"/>
                         <div class="col-md-4">
                             <div class="de-image-text">
-                                <a href="#" class="d-text" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                    <h3><span class="id-color">01</span> Men's Volleyball</h3>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+                                <a href="#" class="d-text" data-bs-toggle="modal" data-bs-target="#exampleModal${countRepre4}">
+                                    <h3><span class="id-color">0${countRepre4}</span> ${schedule.eventTitle}</h3>
+                                    <p>${schedule.context}</p>
                                 </a>
-                                <img src="images/misc/podcast-1.jpg" class="img-fluid" alt="">
+                                <img src="EventImage/${schedule.image}" class="img-fluid" alt="">
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal${countRepre4}" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header" id="#exampleModal2Label">
-                                                <h3>Men's Volleyball</h3>
+                                                <h3>${schedule.eventTitle}</h3>
                                             </div>
                                             <div class="modal-body p-0">
                                                 <div class="video-container">
-                                                    <iframe src="https://www.youtube.com/embed/h7zSbAmrL7Y" width="560" height="315" allow="encrypted-media" style="border: 0px;"></iframe>
+                                                    <iframe src="${schedule.url}" width="560" height="315" allow="encrypted-media" style="border: 0px;"></iframe>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
-
-
-                        <div class="col-md-4">
-                            <div class="de-image-text">
-                                <a href="#" class="d-text" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                                    <h3><span class="id-color">02</span> Men 100m Heraklion</h3>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
-                                </a>
-                                <img src="images/misc/podcast-2.jpg" class="img-fluid" alt="">
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header" id="exampleModal3Label">
-                                                <h3>Mens 100m sprint</h3>
-                                            </div>
-                                            <div class="modal-body p-0">
-                                                <div class="video-container">
-                                                    <iframe src="https://www.youtube.com/embed/h7zSbAmrL7Y" width="1000" height="500" allow="encrypted-media" style="border: 0px;"></iframe>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="de-image-text">
-                                <a href="#" class="d-text" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                                    <h3><span class="id-color">03</span> Women's Badminton</h3>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
-                                </a>
-                                <img src="images/misc/podcast-3.jpg" class="img-fluid" >
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header" id="#exampleModal4Label">
-                                                <h3>Women's Badminton</h3>
-                                            </div>
-                                            <div class="modal-body p-0">
-                                                <div class="video-container">
-                                                    <iframe src="https://www.youtube.com/embed/h7zSbAmrL7Y" width="560" height="315" allow="encrypted-media" style="border: 0px;"></iframe>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
 
                     </div>
                 </div>

@@ -77,6 +77,33 @@ public class ServletOlympics extends HttpServlet {
 
     private void loginUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+        HttpSession session=request.getSession();
+        String email =request.getParameter("email");
+        String password =request.getParameter("password");
+        User_account userinfo=connectionUtil.getUserInfo(email,password);
+        if(userinfo==null){
+            session.setAttribute("email",email);
+            session.setAttribute("alertErrorLogin","Incorrect password or email");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }else{
+            if (session.getAttribute("email") != null){
+                session.removeAttribute("email");
+                session.removeAttribute("alertErrorLogin");
+            }
+            session.setAttribute("alertSuccessful","Successfully login");
+            session.setAttribute("userInfo",userinfo);
+
+            onLogin(request,response);
+
+            if (userinfo.getUser_type().equals("Admin")){
+                request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+            }else if(userinfo.getUser_type().equals("Representatives")){
+                request.getRequestDispatcher("athletes_form.jsp").forward(request, response);
+            }else{
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+
+        }
     }
 
     private void User_Registration(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -132,6 +159,18 @@ public class ServletOlympics extends HttpServlet {
                 case "Broadcast":
                     eventBroadcast(request,response);
                     break;
+                case "deleteResults":
+                    deleteResults(request,response);
+                    break;
+                case "deleteEvent":
+                    deleteEvent(request,response);
+                    break;
+                case "deleteNews":
+                    deleteNews(request,response);
+                    break;
+                case "deleteBroadcast":
+                    deleteBroadcast(request,response);
+                    break;
             }
             // listStudents(request, response);
         }
@@ -139,6 +178,40 @@ public class ServletOlympics extends HttpServlet {
             exc.printStackTrace();
 
         }
+    }
+
+    private void deleteBroadcast(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String id =request.getParameter("id");
+        Broadcast rs=new Broadcast(id);
+        connectionUtil.getBroadcast(rs,"deleting");
+        onLogin(request,response);
+        request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+    }
+
+    private void deleteNews(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String id =request.getParameter("id");
+        News rs=new News(id);
+        connectionUtil.getNews(rs,"deleting");
+        onLogin(request,response);
+        request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+    }
+
+    private void deleteEvent(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        HttpSession session=request.getSession();
+        String id =request.getParameter("id");
+        event rs=new event(id);
+        connectionUtil.getEvent(rs,"deleting");
+        onLogin(request,response);
+        request.getRequestDispatcher("admin-home.jsp").forward(request, response);
+    }
+
+    private void deleteResults(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        HttpSession session=request.getSession();
+        String id =request.getParameter("id");
+        results rs=new results(id);
+        connectionUtil.getResults(rs,"deleting");
+        onLogin(request,response);
+        request.getRequestDispatcher("admin-home.jsp").forward(request, response);
     }
 
     private void eventBroadcast(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -155,8 +228,10 @@ public class ServletOlympics extends HttpServlet {
             if(session.getAttribute("AlertError")!= null){
                 session.removeAttribute("AlertError");
             }
+            System.out.println("works ");
             session.setAttribute("AlertSuccessful","Successfully");
             session.setAttribute("broadcastInfo",results);
+            onLogin(request,response);
             request.getRequestDispatcher("admin-home.jsp").forward(request, response);
 
         }else{
@@ -186,6 +261,7 @@ public class ServletOlympics extends HttpServlet {
             }
             session.setAttribute("AlertSuccessful","Successfully");
             session.setAttribute("resultsInfo",results);
+            onLogin(request,response);
             request.getRequestDispatcher("admin-home.jsp").forward(request, response);
 
         }else{
@@ -232,6 +308,7 @@ public class ServletOlympics extends HttpServlet {
             }
             session.setAttribute("AlertSuccessful","Successfully");
             session.setAttribute("newsInfo",news);
+            onLogin(request,response);
             request.getRequestDispatcher("admin-home.jsp").forward(request, response);
 
         }else{
@@ -250,6 +327,7 @@ public class ServletOlympics extends HttpServlet {
         String context=request.getParameter("context");
         String action=request.getParameter("action");
         String id="0";
+
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         String ApplicationDate= String.valueOf(timestamp.getTime());
         if(action.equals("updating") || action.equals("deleting")){
@@ -273,11 +351,13 @@ public class ServletOlympics extends HttpServlet {
         event ev=new event(id,eventTitle,date,location,context,fileName);
         List<event> events=connectionUtil.getEvent(ev,action);
         if(!events.isEmpty()){
+
             if(session.getAttribute("AlertError")!= null){
                 session.removeAttribute("AlertError");
             }
             session.setAttribute("AlertSuccessful","Successfully");
             session.setAttribute("eventInfo",events);
+            onLogin(request,response);
             request.getRequestDispatcher("admin-home.jsp").forward(request, response);
 
         }else{
@@ -287,5 +367,43 @@ public class ServletOlympics extends HttpServlet {
         }
 
     }
+
+    private void onLogin(HttpServletRequest request, HttpServletResponse response)throws Exception
+    {
+        HttpSession session=request.getSession();
+        String action="login";
+
+
+        //Event
+        event events=new event();
+        List<event> event=connectionUtil.getEvent(events,action);
+        session.setAttribute("eventInfo",event);
+
+        //News
+        News news=new News();
+        List<News> newsList=connectionUtil.getNews(news,action);
+        session.setAttribute("newsInfo",newsList);
+
+        //Broadcast
+        Broadcast br=new Broadcast();
+        List<Broadcast> eventsList3=connectionUtil.getBroadcast(br,action);
+        session.setAttribute("broadcastInfo",eventsList3);
+
+        //Results
+        results rs=new results();
+        List<results> eventsList4=connectionUtil.getResults(rs,action);
+        session.setAttribute("resultsInfo",eventsList4);
+
+        //schedule
+        List<Broadcast> ls=connectionUtil.getBroadcast(br,"login1");
+        session.setAttribute("scheduleInfo",ls);
+
+        //schedule
+        List<event> TOMORROW=connectionUtil.getEvent(events,"login1");
+        session.setAttribute("scheduleInfo2",TOMORROW);
+
+
+    }
+
 }
 

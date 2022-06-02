@@ -2,7 +2,7 @@ package com.example.olympics.model.bean;
 
 public class event {
     String id, eventTitle,date,location,context,image;
-
+    String day,dayNum,year;
     public event(String id, String eventTitle, String date, String location, String context, String image) {
         this.id = id;
         this.eventTitle = eventTitle;
@@ -10,6 +10,50 @@ public class event {
         this.location = location;
         this.context = context;
         this.image = image;
+    }
+
+    public event(String id, String eventTitle, String date, String location, String context, String image, String day, String dayNum, String year) {
+        this.id = id;
+        this.eventTitle = eventTitle;
+        this.date = date;
+        this.location = location;
+        this.context = context;
+        this.image = image;
+        this.day = day;
+        this.dayNum = dayNum;
+        this.year = year;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getDayNum() {
+        return dayNum;
+    }
+
+    public void setDayNum(String dayNum) {
+        this.dayNum = dayNum;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public event(String id) {
+        this.id = id;
+    }
+
+    public event() {
+
     }
 
     public String getId() {

@@ -11,6 +11,13 @@ public class News {
         this.image = image;
     }
 
+    public News() {
+    }
+
+    public News(String id) {
+        this.id = id;
+    }
+
     public String getId() {
         return id;
     }

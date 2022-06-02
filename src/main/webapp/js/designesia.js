@@ -1428,7 +1428,9 @@
         var btn = obj.find('.btn-selector');
         var dd = obj.find('ul');
         var opt = dd.find('li');
+        //var spt=obj.find('.inputing');
         var sp=document.getElementById("sport_id")
+         var sp2=document.getElementById("sport_id2")
         
             obj.on("mouseenter", function() {
                 dd.show();
@@ -1443,7 +1445,9 @@
                 opt.removeClass("active");
                 $(this).addClass("active");
                 btn.text(txt);
+               // spt.value=txt;
                 sp.value=txt;
+                sp2.value=txt;
             });
     }
 
@@ -1499,6 +1503,7 @@
          de_progress();
          de_countdown();
          dropdown('#item_category');
+         dropdown('#item_category2');
          dropdown('#item_collection');
          dropdown('#buy_category');
          dropdown('#items_type');
