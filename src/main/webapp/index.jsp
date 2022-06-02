@@ -1,3 +1,10 @@
+32
+3
+
+
+3
+
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -64,16 +71,12 @@
                                     </li>
                                     <li>
                                         <a href="locations.html">Stream<span></span></a>
-                                        <ul>
-                                            <li><a href="locations.html">Streaming now</a></li>
-                                            <li><a href="search-result.html">Highlights</a></li>
-                                        </ul>
                                     </li>
                                     <li>
                                         <a href="news.jsp">News<span></span></a>
                                     </li>
                                     <li>
-                                        <a href="events.html">Events<span></span></a>
+                                        <a href="events.html">Result<span></span></a>
                                     </li>
                                     <li>
                                         <a href="schedules.jsp">Schedules<span></span></a>
