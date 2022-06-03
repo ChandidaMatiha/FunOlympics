@@ -75,6 +75,58 @@ public class ServletOlympics extends HttpServlet {
         }
     }
 
+
+    private void changePassword(HttpServletRequest request, HttpServletResponse response)throws Exception {
+        HttpSession session=request.getSession();
+        String email= (String) session.getAttribute("EmailVerified");
+        String password =request.getParameter("password");
+        String msg=connectionUtil.changePassword(password,email);
+        if(msg.equals("Successful")){
+            if (session.getAttribute("EmailVerified") != null){
+                session.removeAttribute("EmailVerified");
+            }
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }else{
+            session.setAttribute("alertWaring","Something went wrong");
+            request.getRequestDispatcher("passwordChange.jsp").forward(request, response);
+        }
+
+
+    }
+
+    private void forgotPassword(HttpServletRequest request, HttpServletResponse response)throws Exception {
+        HttpSession session=request.getSession();
+        String email =request.getParameter("email");
+        otp.emailVerification(email);
+        session.setAttribute("EmailSent",email);
+        request.getRequestDispatcher("user_passcode_verification.jsp").forward(request, response);
+    }
+
+    private void VerifyCode(HttpServletRequest request, HttpServletResponse response)throws Exception {
+        HttpSession session=request.getSession();
+        String email= (String) session.getAttribute("EmailSent");
+        String code =request.getParameter("codeVerify");
+        System.out.println("email"+email);
+        String msg=verifyOtp.sentVerifyEmail(code,email);
+        if(msg.equals("Incorrect code")){
+            session.setAttribute("alertWaring", "The provided code is incorrect");
+            request.getRequestDispatcher("user_passcode_verification.jsp").forward(request, response);
+        }else if(msg.equals("error unknown code")){
+            session.setAttribute("alertWaring", "The code has expired");
+            request.getRequestDispatcher("user_passcode_verification.jsp").forward(request, response);
+        }else if(msg.equals("Correct code")){
+            if (session.getAttribute("alertWaring") != null){
+                session.removeAttribute("alertWaring");
+                session.removeAttribute("EmailSent");
+            }
+            session.setAttribute("EmailVerified",email);
+            request.getRequestDispatcher("passwordChange.jsp").forward(request, response);
+        }
+
+    }
+
+
+
     private void loginUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         HttpSession session=request.getSession();
@@ -146,6 +198,15 @@ public class ServletOlympics extends HttpServlet {
                     break;
                 case "Login_User":
                     loginUser(request,response);
+                    break;
+                case "VerifyCode":
+                    VerifyCode(request,response);
+                    break;
+                case "forgotPassword":
+                    forgotPassword(request,response);
+                    break;
+                case "changePassword":
+                    changePassword(request,response);
                     break;
                 case "Event":
                     Event(request,response);

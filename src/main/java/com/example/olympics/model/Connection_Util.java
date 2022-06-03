@@ -491,5 +491,26 @@ public class Connection_Util {
         return medals;
     }
 
+    public String changePassword(String password, String email) throws Exception{
+        Connection myConn=null;
+        ResultSet myRs=null;
+        PreparedStatement myStmt=null;
+        String msg=null;
+        try {
+            myConn = dataSource.getConnection();
+            String sql = "UPDATE `user_account` SET `password` = ? WHERE (`email` = '" + email + "');";
+            myStmt = myConn.prepareStatement(sql);
+            myStmt.setString(1,password);
+            myStmt.execute();
+            msg="Successful";
+        }catch (Exception e){
+            System.out.println(e);
+            msg="Error";
+        }finally {
+            close(myConn, myStmt, null);
+        }
+        return msg;
+    }
+
 }
 
