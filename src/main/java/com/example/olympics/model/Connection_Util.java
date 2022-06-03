@@ -4,10 +4,7 @@ import com.example.olympics.model.bean.*;
 
 import javax.sql.DataSource;
 import java.nio.charset.StandardCharsets;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -426,6 +423,72 @@ public class Connection_Util {
             close(myConn,myStmt,null);
         }
         return msg;
+    }
+
+    public List<String> countries()throws Exception{
+        Connection myConn=null;
+        PreparedStatement myStmt=null;
+        ResultSet myRs=null;
+        List<String> countries= new ArrayList<>();
+
+        try{
+            //get a connection
+            myConn =dataSource.getConnection();
+            String sql3;
+            sql3 = " SELECT * FROM results group by country ";
+            myStmt = myConn.prepareStatement(sql3);
+            System.out.println("sql "+myStmt);
+            myRs=myStmt.executeQuery();
+            while(myRs.next()){
+                String country=myRs.getString("country");
+                countries.add(country);
+            }
+
+        }catch(SQLIntegrityConstraintViolationException e){
+            System.out.println ("This is error: "+e);
+        } finally {
+            close(myConn,myStmt,null);
+        }
+        return countries;
+    }
+
+    public List<medals> medalsSummary()throws Exception{
+        Connection myConn=null;
+        PreparedStatement myStmt=null;
+        ResultSet myRs=null;
+        List<String> countries=countries();
+        List<medals> medals=new ArrayList<>();
+
+        for (int i=0;i<countries.size();++i){
+            try{
+                //get a connection
+                myConn =dataSource.getConnection();
+                String sql3;
+                sql3 = " SELECT COUNT(IF(medal = 'Gold', 1, NULL)) 'Gold',\n" +
+                        "    COUNT(IF(medal = 'Silver', 1, NULL)) 'Silver',\n" +
+                        "    COUNT(IF(medal = 'Bronze', 1, NULL)) 'Bronze' FROM results where country='"+countries.get(i)+"'";
+                myStmt = myConn.prepareStatement(sql3);
+                System.out.println("sql "+myStmt);
+                myRs=myStmt.executeQuery();
+                while(myRs.next()){
+                    //String country=myRs.getString("country");
+                    int gold=myRs.getInt("Gold");
+                    int silver=myRs.getInt("Silver");
+                    int bronze=myRs.getInt("bronze");
+                    int total=gold+silver+bronze;
+                    medals md=new medals(countries.get(i),String.valueOf(gold),String.valueOf(silver),String.valueOf(bronze),String.valueOf(total));
+                    medals.add(md);
+
+                }
+
+            }catch(SQLIntegrityConstraintViolationException e){
+                System.out.println ("This is error: "+e);
+            } finally {
+                close(myConn,myStmt,null);
+            }
+        }
+
+        return medals;
     }
 
 }

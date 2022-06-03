@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -138,16 +140,23 @@
                                             </thead>
 
                                             <tbody>
+                                            <c:set var="countRepre3" value="0" scope="page"/>
+                                            <c:forEach var="results" items="${resultsInfo}">
+                                            <c:set var="countRepre3" value="${countRepre3+1}" scope="page"/>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Swimming</td>
-                                                    <td>Tom davies</td>
+                                                    <td>${countRepre3}</td>
+                                                    <td>${results.sportTitle}</td>
+                                                    <td>${results.winnersName}</td>
+                                                    <td>${results.country}</td>
+
+
                                                     <td>
-                                                        <img src="images/flag1.jpg" class="rounded-circle" alt="">
-                                                        <span>Botswana</span>
+                                                        <img src="images/${results.country}.jpg" class="rounded-circle" alt="">
+                                                        <span>${results.country}</span>
                                                     </td>
-                                                    <td>Gold</td>
+                                                    <td>${results.medal}</td>
                                                 </tr>
+                                            </c:forEach>
                                             </tbody>
                                         </table>
                                     </div> <!-- end .table-responsive-->
