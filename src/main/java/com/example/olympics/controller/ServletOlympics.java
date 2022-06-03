@@ -176,7 +176,7 @@ public class ServletOlympics extends HttpServlet {
         }else {
             session.setAttribute("user_acc",userinfo);
             session.setAttribute("alertError","Failed registered");
-            request.getRequestDispatcher("user_register.jsp").forward(request, response);
+            request.getRequestDispatcher("register.jsp").forward(request, response);
         }
 
     }

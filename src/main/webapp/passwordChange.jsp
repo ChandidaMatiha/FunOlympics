@@ -132,12 +132,12 @@
 
                             <div class="col-lg-4 offset-lg-1 wow fadeIn" data-wow-delay=".5s">
                                 <div class="box-rounded padding40" data-bgcolor="#ffffff">
-                                    <h3 class="mb10">Verification Coe</h3>
+                                    <h3 class="mb10">New password</h3>
                                     <p>Enter your email below so as to create your new password <a href="register.html">funOlympics<span></span></a>.</p>
                                     <form name="contactForm" id='contact_form' class="form-border" method="post" action='ServletOlympics'>
                                         <input type="hidden" name="command" value="changePassword">
                                         <div class="field-set">
-                                            <input type='text' name='password' id='email' class="form-control" placeholder="New password">
+                                            <input type='password' name='password' id='email' class="form-control" placeholder="New password">
                                         </div>
 
 

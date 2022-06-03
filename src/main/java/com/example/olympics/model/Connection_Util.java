@@ -49,7 +49,7 @@ public class Connection_Util {
         String msg=null;
         try{
             myConn = dataSource.getConnection();
-            String sql="INSERT INTO `Olympics`.`user_account` (`full_name`, `email`, `password`, `user_type`) VALUES (?,?,?,?);";
+            String sql="INSERT INTO `user_account` (`full_name`, `email`, `password`, `user_type`) VALUES (?,?,?,?);";
             myStmt = myConn.prepareStatement(sql);
             myStmt.setString(1, userinfo.getFull_name());
             myStmt.setString(2, userinfo.getEmail());
